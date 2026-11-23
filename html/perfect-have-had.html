@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Глава. Present Perfect — have/has + V3</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-2: #243044;
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --ok: #34d399;
+      --bad: #f87171;
+      --warn: #fbbf24;
+      --radius: 16px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(56, 189, 248, 0.12), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 28px 20px 80px; }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 12px 20px; margin: 0 -20px 32px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav a {
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      padding: 6px 10px; border-radius: 999px;
+    }
+    .nav a:hover { color: #7dd3fc; }
+    .kicker {
+      color: var(--accent); font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; font-weight: 700;
+    }
+    h1 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.2; margin: 8px 0 12px; }
+    h2 { font-size: 1.28rem; letter-spacing: -0.02em; margin: 0 0 12px; }
+    h3 { font-size: 1.02rem; margin: 22px 0 8px; }
+    p { margin: 0 0 14px; }
+    .lead { color: var(--muted); font-size: 1.08rem; }
+    section { margin: 40px 0; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 36%), var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 26px 22px;
+    }
+    .chapter-num { color: var(--muted); font-size: 13px; letter-spacing: 0.12em; }
+    .formula {
+      font-family: ui-monospace, "SF Mono", Consolas, monospace;
+      background: #0b1220; border: 1px solid var(--line);
+      border-radius: 12px; padding: 14px 16px; margin: 14px 0 18px;
+    }
+    .en { color: #f8fafc; }
+    .ru, .muted { color: var(--muted); }
+    .ex {
+      margin: 14px 0; padding: 14px 16px;
+      background: var(--card-2); border-radius: 12px;
+    }
+    .note {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px; border-radius: 0 12px 12px 0;
+      color: var(--muted); margin: 16px 0;
+    }
+    .dim { opacity: 0.5; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 12px 0 8px; }
+    th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; }
+    .prose p:last-child { margin-bottom: 0; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+    .row input {
+      flex: 1; min-width: 220px;
+      background: #0b1220; color: var(--text); border: 1px solid var(--line);
+      border-radius: 12px; padding: 10px 12px; font: inherit;
+    }
+    .row button, .btn {
+      background: var(--accent); color: #082f49; border: 0; border-radius: 999px;
+      padding: 10px 14px; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .ch {
+      display: inline-block; min-width: 0.72em; text-align: center;
+      font-family: ui-monospace, Consolas, monospace; font-size: 1.05rem;
+    }
+    .ch.ok { color: var(--ok); }
+    .ch.bad, .ch.extra { color: var(--bad); text-decoration: underline; }
+    .ch.miss { color: #64748b; border-bottom: 1px dashed #64748b; }
+    .fb { margin: 8px 0 0; font-size: 0.92rem; color: var(--muted); min-height: 1.2em; }
+    .task {
+      margin: 0 0 14px; padding: 12px 14px;
+      border: 1px solid var(--line); border-radius: 12px;
+      background: rgba(56, 189, 248, 0.05);
+    }
+    .task.todo { opacity: 1; }
+    .task.done {
+      opacity: 0.32;
+      background: transparent;
+      filter: saturate(0.35);
+    }
+    .prompt { margin: 0; }
+    .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+    .score { color: var(--muted); }
+    .bar { height: 6px; background: #0b1220; border-radius: 99px; overflow: hidden; margin: 8px 0 14px; }
+    .bar > i { display: block; height: 100%; background: var(--accent); width: 0; }
+    .sticky-prog {
+      position: sticky; top: 48px; z-index: 14;
+      background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(10px);
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px 14px; margin-bottom: 14px;
+    }
+    label.chk { color: var(--muted); font-size: 0.9rem; display: flex; gap: 8px; align-items: center; }
+    @media print {
+      .nav, #drill, .toolbar { display: none !important; }
+      body { background: #fff; color: #111; }
+      .card, .ex, .formula { box-shadow: none; background: #fff; color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="../index.html">All lessons</a>
+      <a href="#origin">Происхождение</a>
+      <a href="#meaning">Что это значит</a>
+      <a href="#form">Как собирается</a>
+      <a href="#verbs">Глаголы</a>
+      <a href="#one">Одно предложение</a>
+      <a href="#havehad">have had</a>
+      <a href="#border">Граница с past</a>
+      <a href="#drill">Письмо</a>
+      <a href="#cheat">Шпаргалка</a>
+    </nav>
+
+    <p class="chapter-num">ENGLISH GRAMMAR · ГЛАВА О НАСТОЯЩЕМ СОВЕРШЕННОМ</p>
+    <p class="kicker">единственная тема этой главы — Present Perfect</p>
+    <h1>Present Perfect:<br>иметь результат при себе</h1>
+    <p class="lead">
+      Это не «ещё одно прошедшее». Это способ сказать, что прошлое действие оставило след,
+      который говорящий держит <i>сейчас</i>. Форма have/has + причастие выросла из самого обычного глагола
+      «иметь». Пока это не понято, таблица времён остаётся набором ярлыков.
+    </p>
+
+    <section id="origin">
+      <div class="card prose">
+        <h2>I. Откуда взялась эта форма</h2>
+        <p>
+          В старом английском, как и в других германских языках, сначала не было отдельного
+          «совершенного времени». Было обладание. Человек говорил не «я написал письмо», а по сути:
+          <b>у меня есть письмо — написанное</b>. Результат лежит при мне, как вещь.
+        </p>
+        <div class="ex">
+          <p class="en">I have the letter written.</p>
+          <p class="ru">У меня есть (это) письмо — написанное. Have ещё настоящее и настоящее: я владею предметом. Written — признак предмета.</p>
+        </div>
+        <p>
+          Дальше конструкция грамматикализовалась. Причастие отлипло от существительного и пристало к глаголу.
+          Порядок сжался. Смысл «у меня есть сделанная вещь» стал смыслом «я это сделал, и это у меня в активе».
+        </p>
+        <div class="formula">
+          I have the letter written. &nbsp;→&nbsp; I have written the letter.
+        </div>
+        <p>
+          Вот почему вспомогательный глагол — именно <b>have</b>, а не какой-нибудь do.
+          Внутри Present Perfect до сих пор слышно старое «иметь». Не «иметь предмет», а <b>иметь положение дел</b>.
+          Have стоит в настоящем, потому что обладание результатом — факт настоящего.
+          Причастие (V3) называет, <i>какой</i> результат ты держишь.
+        </p>
+        <p>
+          Отсюда же странность для русского уха: <i>have had</i>. Это не заикание.
+          Первое have — то самое вспомогательное «держу результат».
+          Второе had — причастие смыслового have, «иметь / получить / поесть / пережить».
+          Как если бы сказать: «у меня в активе — имение обеда». Неловко по-русски, безупречно по внутренней логике английского.
+        </p>
+        <p class="note">
+          Русский решает похожую задачу видом: «я написал» уже содержит завершённость.
+          Но русский не обязан сообщать, жив ли результат <i>сейчас</i>. Английский в этой главе как раз обязан.
+          Present Perfect — не про то, что действие закончилось. Про то, что говорящий смотрит из NOW и видит следствие.
+        </p>
+      </div>
+    </section>
+
+    <section id="meaning">
+      <div class="card prose">
+        <h2>II. Что говорящий имеет в виду</h2>
+        <p>
+          Представь камеру. Она стоит не в прошлом эпизоде, а в настоящей комнате.
+          В кадр попадает не момент действия, а <b>состояние комнаты после него</b>.
+          Письмо написано — лежит. PR влит — в main. Обед съеден — ты сыт.
+        </p>
+        <p>
+          Поэтому Present Perfect часто переводят «уже», «есть опыт», «с тех пор», хотя этих слов может не быть.
+          «Уже» — не обязательная частица, а естественный оттенок: результат на руках.
+        </p>
+        <div class="ex">
+          <p class="en">I have merged the PR.</p>
+          <p class="ru">Не рассказ «я сидел и вливал». Сообщение коллеге: в репозитории сейчас это уже так.</p>
+        </div>
+        <div class="ex">
+          <p class="en">I have been to Shanghai.</p>
+          <p class="ru">Не туристический отчёт о датах. В биографии этот город есть. Опыт — часть настоящего «я».</p>
+        </div>
+        <p>
+          Если спрашивают <span class="en">Have you had lunch?</span>, человека не интересует меню и час.
+          Интересует текущее: голоден ли ты, можно ли тебя звать есть.
+          Вопрос выглядит как вопрос о прошлом, а по функции это вопрос о <b>сейчас</b>.
+        </p>
+        <p>Три типичных оттенка — всё ещё одно время. Ниже разные глаголы, не только have.</p>
+
+        <h3>1. Результат — в комнате что-то изменилось</h3>
+        <div class="ex">
+          <p class="en">I have <b>finished</b> the chapter.</p>
+          <p class="ru">Глава готова. Можно отправлять.</p>
+          <p class="en">She has <b>broken</b> the build.</p>
+          <p class="ru">Сборка сейчас красная. Broken — следы на настоящем.</p>
+          <p class="en">I have <b>lost</b> my keys.</p>
+          <p class="ru">Ключей нет. Lost описывает дыру в текущем кармане.</p>
+          <p class="en">They have <b>gone</b> to Shanghai.</p>
+          <p class="ru">Их здесь нет. Gone = уехали и отсутствуют.</p>
+          <p class="en">He has <b>left</b> a comment on the PR.</p>
+          <p class="ru">Комментарий уже висит.</p>
+          <p class="en">We have <b>sold</b> the old monitor.</p>
+          <p class="ru">Монитора больше нет в инвентаре.</p>
+        </div>
+
+        <h3>2. Опыт — это часть биографии, даты нет</h3>
+        <div class="ex">
+          <p class="en">I have <b>been</b> to Beijing.</p>
+          <p class="ru">Пекин в опыте. Сейчас ты, скорее всего, не там (иначе gone).</p>
+          <p class="en">Have you ever <b>eaten</b> phở at 6 a.m.?</p>
+          <p class="ru">Бывало ли такое в жизни?</p>
+          <p class="en">She has <b>met</b> the advisor twice.</p>
+          <p class="ru">Две встречи уже в активе.</p>
+          <p class="en">I have never <b>flown</b> this route.</p>
+          <p class="ru">Такого перелёта в биографии нет.</p>
+          <p class="en">We have <b>tried</b> Redis for this cache.</p>
+          <p class="ru">Попытка уже была; знание есть.</p>
+          <p class="en">He has <b>spoken</b> at two conferences.</p>
+          <p class="ru">Опыт выступлений, не афиша «когда именно».</p>
+        </div>
+
+        <h3>3. Окно ещё открыто — since / for / today / this week</h3>
+        <div class="ex">
+          <p class="en">I have <b>lived</b> in Quy Nhon for a year.</p>
+          <p class="ru">Живу до сих пор. Live в V3, но жизнь не закончилась.</p>
+          <p class="en">She has <b>worked</b> here since 2024.</p>
+          <p class="ru">Стаж тянется в NOW.</p>
+          <p class="en">I have <b>known</b> him for years.</p>
+          <p class="ru">Знакомство не событие, а текущее отношение из прошлого.</p>
+          <p class="en">We have <b>waited</b> twenty minutes.</p>
+          <p class="ru">Ожидание уже накоплено; часто всё ещё ждём.</p>
+          <p class="en">I have <b>read</b> three papers today.</p>
+          <p class="ru">День не закрыт, счётчик живой.</p>
+          <p class="en">He hasn’t <b>slept</b> since the incident.</p>
+          <p class="ru">С инцидента сна не было — дыра длится.</p>
+        </div>
+        <p class="muted">Это не три времени. Три повода смотреть на прошлое из настоящего. Глагол любой; меняется только причастие.</p>
+      </div>
+    </section>
+
+    <section id="form">
+      <div class="card prose">
+        <h2>III. Как форма складывается сейчас</h2>
+        <p>
+          История сжалась в две клетки. Первая — have в настоящем (согласуется с подлежащим).
+          Вторая — причастие прошедшего, третья форма глагола. Смысловой глагол больше не спрягается.
+        </p>
+        <div class="formula">
+          I / you / we / they + have + V3<br>
+          he / she / it + has + V3<br><br>
+          отрицание: have/has + not + V3 &nbsp;→&nbsp; haven’t / hasn’t<br>
+          вопрос: Have/Has + подлежащее + V3?
+        </div>
+        <p>
+          Have здесь не «иметь машину». Это грамматический наследник того have.
+          Спряжение have/has — единственное живое спряжение в этой форме.
+          Finished, merged, had, been, written — застывший вид результата.
+        </p>
+        <div class="ex">
+          <p class="en">I have finished it. · She has finished it.</p>
+          <p class="en">I have not finished it yet. · Have you finished it?</p>
+        </div>
+        <p class="dim">Не эта глава: had finished, will have finished, am finishing, have been finishing.</p>
+      </div>
+    </section>
+
+    <section id="verbs">
+      <div class="card prose">
+        <h2>IV. Один механизм — разные причастия</h2>
+        <p>
+          Have/has не меняется. Меняется V3: какой результат ты держишь.
+          Have had — лишь частный случай, когда содержимое результата само «иметь».
+          Ниже та же схема на глаголах, которые путают из‑за нерегулярных форм.
+        </p>
+        <table>
+          <thead><tr><th>V3</th><th>EN</th><th>RU (взгляд из NOW)</th></tr></thead>
+          <tbody>
+            <tr><td>written</td><td class="en">I have written to the embassy.</td><td>Письмо уже ушло. Ждём ответа.</td></tr>
+            <tr><td>sent</td><td class="en">She has sent the X1 file.</td><td>Файл сдан.</td></tr>
+            <tr><td>done</td><td class="en">Have you done the homework?</td><td>Сделано ли к сейчас?</td></tr>
+            <tr><td>made</td><td class="en">I have made a decision.</td><td>Решение уже принято.</td></tr>
+            <tr><td>taken</td><td class="en">They have taken the exam.</td><td>Экзамен позади, статус «сдан/сдан на проверку».</td></tr>
+            <tr><td>given</td><td class="en">He has given me access.</td><td>Доступ у меня есть.</td></tr>
+            <tr><td>bought</td><td class="en">I have bought the tickets.</td><td>Билеты на руках.</td></tr>
+            <tr><td>brought</td><td class="en">She has brought the documents.</td><td>Документы уже здесь.</td></tr>
+            <tr><td>thought</td><td class="en">I have thought about Zhejiang.</td><td>Мысль уже в голове, не вспышка «подумал вчера».</td></tr>
+            <tr><td>taught</td><td class="en">He has taught this course before.</td><td>Опыт преподавания есть.</td></tr>
+            <tr><td>caught</td><td class="en">We have caught the bug in staging.</td><td>Баг уже пойман.</td></tr>
+            <tr><td>paid</td><td class="en">I have paid the rent.</td><td>Долга за этот цикл нет.</td></tr>
+            <tr><td>built</td><td class="en">They have built a prototype.</td><td>Прототип существует.</td></tr>
+            <tr><td>broken</td><td class="en">I have broken the pipeline.</td><td>Пайплайн сейчас мёртвый.</td></tr>
+            <tr><td>spoken</td><td class="en">I have spoken to the landlord.</td><td>Разговор состоялся, информация у нас.</td></tr>
+            <tr><td>stolen</td><td class="en">Someone has stolen the bike.</td><td>Велика нет.</td></tr>
+            <tr><td>forgotten</td><td class="en">I have forgotten the password.</td><td>Сейчас не помню.</td></tr>
+            <tr><td>chosen</td><td class="en">We have chosen the advisor.</td><td>Выбор сделан.</td></tr>
+            <tr><td>begun</td><td class="en">She has begun the language year.</td><td>Год уже стартовал.</td></tr>
+            <tr><td>become</td><td class="en">He has become the tech lead.</td><td>Это его текущая роль.</td></tr>
+            <tr><td>grown</td><td class="en">The team has grown.</td><td>Команда сейчас больше.</td></tr>
+            <tr><td>shown</td><td class="en">I have shown her the logs.</td><td>Она логи уже видела.</td></tr>
+            <tr><td>thrown</td><td class="en">I have thrown away the old SSD.</td><td>SSD больше нет.</td></tr>
+            <tr><td>drawn</td><td class="en">She has drawn the architecture.</td><td>Схема есть.</td></tr>
+            <tr><td>driven</td><td class="en">I have driven on the left before.</td><td>Опыт левостороннего есть.</td></tr>
+            <tr><td>flown</td><td class="en">We have flown through Hanoi.</td><td>Такой перелёт в опыте.</td></tr>
+            <tr><td>worn</td><td class="en">I have worn this jacket for years.</td><td>Куртка со мной до сих пор / стаж носки.</td></tr>
+            <tr><td>eaten</td><td class="en">I haven’t eaten yet.</td><td>Еды в активе нет. Голоден.</td></tr>
+            <tr><td>drunk</td><td class="en">She hasn’t drunk water since noon.</td><td>С полудня воды не было.</td></tr>
+            <tr><td>slept</td><td class="en">I haven’t slept.</td><td>Сна не было — состояние сейчас.</td></tr>
+            <tr><td>spent</td><td class="en">We have spent the budget.</td><td>Бюджета не осталось.</td></tr>
+            <tr><td>kept</td><td class="en">I have kept the receipts.</td><td>Чеки у меня.</td></tr>
+            <tr><td>felt</td><td class="en">I have felt this pain before.</td><td>Ощущение знакомо.</td></tr>
+            <tr><td>meant</td><td class="en">I have always meant to learn 汉字.</td><td>Намерение длится.</td></tr>
+            <tr><td>understood</td><td class="en">I have understood the constraint.</td><td>Ограничение для меня ясно.</td></tr>
+            <tr><td>become</td><td class="en">It has become clear.</td><td>Сейчас это ясно.</td></tr>
+            <tr><td>come</td><td class="en">The results have come in.</td><td>Результаты уже здесь.</td></tr>
+            <tr><td>run</td><td class="en">I have run the migration.</td><td>Миграция уже прошла.</td></tr>
+            <tr><td>put</td><td class="en">I have put the key in the box.</td><td>Ключ сейчас в ящике.</td></tr>
+            <tr><td>set</td><td class="en">We have set the deadline.</td><td>Дедлайн назначен.</td></tr>
+            <tr><td>cut</td><td class="en">They have cut the scope.</td><td>Скоп уже меньше.</td></tr>
+            <tr><td>hit</td><td class="en">We have hit the rate limit.</td><td>Лимит уже сработал.</td></tr>
+            <tr><td>read</td><td class="en">I have read the RFC.</td><td>RFC уже в голове.</td></tr>
+            <tr><td>met</td><td class="en">I have met her advisor.</td><td>Знакомство состоялось.</td></tr>
+            <tr><td>won</td><td class="en">They have won the grant.</td><td>Грант наш.</td></tr>
+            <tr><td>fallen</td><td class="en">The service has fallen over.</td><td>Сервис лежит.</td></tr>
+            <tr><td>hidden</td><td class="en">I have hidden the token.</td><td>Токена в репо нет.</td></tr>
+            <tr><td>risen</td><td class="en">Costs have risen.</td><td>Косты сейчас выше.</td></tr>
+            <tr><td>woken</td><td class="en">I have just woken up.</td><td>Только что в сознании.</td></tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Regular глаголы сюда же: finished, merged, deployed, booked, called, asked, tried, used, compiled.
+          Правило одно: have/has + V3. Не I have wrote, не I have ate, не she have gone.
+        </p>
+        <p>
+          Вопросы и отрицания на тех же глаголах:
+        </p>
+        <div class="ex">
+          <p class="en">Have you <b>seen</b> this stack trace?</p>
+          <p class="en">Has she <b>called</b> the consulate yet?</p>
+          <p class="en">I haven’t <b>bought</b> the visa photos yet.</p>
+          <p class="en">We haven’t <b>told</b> them.</p>
+          <p class="en">Has the package <b>arrived</b>?</p>
+          <p class="en">I haven’t <b>forgotten</b> the appointment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="one">
+      <div class="card prose">
+        <h2>V. Одно предложение, чтобы услышать разницу</h2>
+        <p>
+          Возьмём обед. Русское «я обедал» годится и для режима, и для «уже сыт», и для «вчера в два».
+          Английский эти три взгляда не склеивает. В этой главе нам нужна только средняя строка.
+          Крайние — серые: они не изучаются, они показывают, чем Present Perfect не является.
+        </p>
+        <table>
+          <thead><tr><th></th><th>Форма</th><th>Что держит говорящий</th></tr></thead>
+          <tbody>
+            <tr class="dim">
+              <td>не учим</td>
+              <td class="en">I have lunch at 2.</td>
+              <td>Расписание. Have — смысловой «обычно обедаю». Результата нет, есть привычка.</td>
+            </tr>
+            <tr>
+              <td>эта глава</td>
+              <td class="en"><b>I have had lunch.</b></td>
+              <td>У меня в активе обед. Have — вспомогательный. Had — причастие «поесть/иметь трапезу». Сейчас я не голоден.</td>
+            </tr>
+            <tr class="dim">
+              <td>не учим</td>
+              <td class="en">I had lunch at 2.</td>
+              <td>Закрытый кадр. Камера в прошлом. NOW не при чём. Это простое прошедшее.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Проговори вслух: не «я имел имел обед», а «я располагаю фактом обеда».
+          Отсюда утверждение, отрицание, вопрос — одно и то же обладание, с разным знаком.
+        </p>
+        <div class="ex">
+          <p class="en">I have had lunch.</p>
+          <p class="ru">Я уже пообедал. Результат при мне.</p>
+        </div>
+        <div class="ex">
+          <p class="en">I haven’t had lunch yet.</p>
+          <p class="ru">Этого результата ещё нет. Yet оставляет окно открытым: ожидается, что обед случится.</p>
+        </div>
+        <div class="ex">
+          <p class="en">Have you had lunch?</p>
+          <p class="ru">Этот результат у тебя уже есть?</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="havehad">
+      <div class="card prose">
+        <h2>VI. Have had: частный случай, не вся глава</h2>
+        <p>
+          Если смысловой глагол — write, причастие written: I have written.
+          Если смысловой глагол — have, причастие всегда had: I have had.
+          Вспомогательный не меняется. Меняется только начинка результата.
+        </p>
+        <div class="formula">have/has<sub>держу результат</sub> + had<sub>содержанием результата было «иметь / получить / пережить»</sub></div>
+        <p>
+          I have a car — машина есть, have живое, настоящего Perfect нет.
+          I have had a car — в опыте владение уже записано. Машина прямо сейчас может и не стоять у дома,
+          если нет since/for. С since конструкция снова про настоящее обладание, растянутое из прошлого:
+        </p>
+        <div class="ex">
+          <p class="en">I have had this laptop since 2023.</p>
+          <p class="ru">Владение началось тогда и не отпускалось. Have had здесь — стаж, который ты всё ещё держишь.</p>
+        </div>
+        <div class="ex">
+          <p class="en">I have had this bug before.</p>
+          <p class="ru">В опыте такая встреча уже есть. Не обязательно, что баг живёт в коде сию минуту.</p>
+        </div>
+        <p>
+          She/he/it берёт has: She has had this bug. Множественное и I/you/we — have had.
+          Ошибка she have had — это сломанное согласование вспомогательного, не «особый случай had».
+        </p>
+      </div>
+    </section>
+
+    <section id="border">
+      <div class="card prose">
+        <h2>VII. Почему «yesterday» убивает эту форму</h2>
+        <p>
+          Present Perfect держит результат в настоящем. Если ты ставишь закрытую дату —
+          yesterday, in 2024, at 2 o’clock last Friday — камера срывается в прошлое.
+          Ты уже не «имеешь следствие», ты указываешь эпизод. Для эпизода английский берёт простое прошедшее.
+          Эту главу оно не занимает, но границу надо видеть, иначе форма употребляется вхолостую.
+        </p>
+        <div class="ex">
+          <p class="en dim">I have had lunch yesterday.</p>
+          <p class="ru">Внутреннее противоречие: have требует NOW, yesterday требует мёртвого кадра.</p>
+          <p class="en">I’ve already had lunch. &nbsp;|&nbsp; I had lunch yesterday.</p>
+          <p class="ru">Либо живой статус. Либо рассказ о вчера. Не оба сразу в одной конструкции Present Perfect.</p>
+        </div>
+        <p>
+          Наоборот, today / this week / since / for / already / just / yet / ever / never
+          не закрывают окно. Они либо держат период открытым, либо подчёркивают, что результат уже (или ещё не) в руках.
+          Just — свежее обладание. Yet — обладания нет, но счёт не закрыт. Ever/never — опрос биографии из точки NOW.
+        </p>
+        <p>
+          Поэтому «Я уже обедал» → I’ve had lunch.
+          «Ты уже ел?» → Have you had lunch?
+          «У меня этот ноут с 2023» → I have had this laptop since 2023.
+          А «Вчера в два» в эту главу не кладут.
+        </p>
+      </div>
+    </section>
+
+    <section id="drill">
+      <div class="card">
+        <h2>VIII. Перевод: русский → Present Perfect</h2>
+        <p class="muted">
+          Много глаголов, не только have had. Пиши целиком. Непереведённые яркие; верные тускнеют.
+          Проверка букв — кнопка рядом. Эталон после второй ошибки.
+        </p>
+        <div class="sticky-prog">
+          <div class="score" id="score">закрыто 0</div>
+          <div class="bar"><i id="bar"></i></div>
+          <div class="toolbar">
+            <label class="chk"><input type="checkbox" id="onlyLeft" checked> только непереведённые</label>
+            <button type="button" class="btn" id="reshuffle">Перемешать оставшиеся</button>
+            <button type="button" class="btn" id="resetDone" style="background:#334155;color:#e2e8f0">Сбросить прогресс</button>
+          </div>
+        </div>
+        <div id="tasks"></div>
+      </div>
+    </section>
+
+    <section id="cheat">
+      <div class="card prose">
+        <h2>Шпаргалка</h2>
+        <p>
+          Present Perfect = в настоящем держишь результат прошлого.
+          Форма: have/has + V3. Если смысловой глагол have → have/has had.
+        </p>
+        <div class="formula">
+          I’ve had lunch. · I haven’t had lunch yet. · Have you had lunch?<br>
+          already / just / yet / ever / never / since / for / so far / today<br>
+          не: yesterday / in 2021 / last week + Present Perfect
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    /* 100 фраз RU→EN. en — канон; expand() добавит сокращения. */
+    const RAW = [
+      ["Я уже написал письмо. (write)", "I have written the email."],
+      ["Она уже отправила файл. (send)", "She has already sent the file."],
+      ["Ты уже сделал домашку? (do)", "Have you done the homework?"],
+      ["Я ещё не сделал домашку.", "I haven't done the homework yet."],
+      ["Я принял решение. (make)", "I have made a decision."],
+      ["Они уже сдали экзамен. (take)", "They have taken the exam."],
+      ["Он дал мне доступ. (give)", "He has given me access."],
+      ["Я купил билеты. (buy)", "I have bought the tickets."],
+      ["Она принесла документы. (bring)", "She has brought the documents."],
+      ["Я уже думал про Чжэцзян. (think)", "I have thought about Zhejiang."],
+      ["Он уже вёл этот курс. (teach)", "He has taught this course before."],
+      ["Мы поймали баг на staging. (catch)", "We have caught the bug in staging."],
+      ["Я оплатил аренду. (pay)", "I have paid the rent."],
+      ["Они собрали прототип. (build)", "They have built a prototype."],
+      ["Я сломал пайплайн. (break)", "I have broken the pipeline."],
+      ["Я поговорил с арендодателем. (speak)", "I have spoken to the landlord."],
+      ["Кто-то украл велосипед. (steal)", "Someone has stolen the bike."],
+      ["Я забыл пароль. (forget)", "I have forgotten the password."],
+      ["Мы выбрали научрука. (choose)", "We have chosen the advisor."],
+      ["Она начала языковой год. (begin)", "She has begun the language year."],
+      ["Он стал техлидом. (become)", "He has become the tech lead."],
+      ["Команда выросла. (grow)", "The team has grown."],
+      ["Я показал ей логи. (show)", "I have shown her the logs."],
+      ["Я выбросил старый SSD. (throw)", "I have thrown away the old SSD."],
+      ["Она нарисовала архитектуру. (draw)", "She has drawn the architecture."],
+      ["Я уже ездил слева. (drive)", "I have driven on the left before."],
+      ["Мы летали через Ханой. (fly)", "We have flown through Hanoi."],
+      ["Я ещё не ел. (eat)", "I haven't eaten yet."],
+      ["Она не пила воду с полудня. (drink)", "She hasn't drunk water since noon."],
+      ["Я не спал. (sleep)", "I haven't slept."],
+      ["Мы потратили бюджет. (spend)", "We have spent the budget."],
+      ["Я сохранил чеки. (keep)", "I have kept the receipts."],
+      ["Я уже чувствовал эту боль. (feel)", "I have felt this pain before."],
+      ["Я понял ограничение. (understand)", "I have understood the constraint."],
+      ["Это стало ясно. (become)", "It has become clear."],
+      ["Результаты уже пришли. (come)", "The results have come in."],
+      ["Я прогнал миграцию. (run)", "I have run the migration."],
+      ["Я положил ключ в ящик. (put)", "I have put the key in the box."],
+      ["Мы назначили дедлайн. (set)", "We have set the deadline."],
+      ["Они урезали скоуп. (cut)", "They have cut the scope."],
+      ["Мы упёрлись в rate limit. (hit)", "We have hit the rate limit."],
+      ["Я прочитал RFC. (read)", "I have read the RFC."],
+      ["Я знаком с её научруком. (meet)", "I have met her advisor."],
+      ["Они выиграли грант. (win)", "They have won the grant."],
+      ["Сервис упал. (fall)", "The service has fallen over."],
+      ["Я спрятал токен. (hide)", "I have hidden the token."],
+      ["Косты выросли. (rise)", "Costs have risen."],
+      ["Я только что проснулся. (wake)", "I have just woken up."],
+      ["Ты видел этот стектрейс? (see)", "Have you seen this stack trace?"],
+      ["Я никогда не видел такой стектрейс.", "I have never seen such a stack trace."],
+      ["Она уже звонила в консульство? (call)", "Has she called the consulate yet?"],
+      ["Я ещё не купил фото на визу. (buy)", "I haven't bought the visa photos yet."],
+      ["Мы им ещё не сказали. (tell)", "We haven't told them."],
+      ["Посылка уже пришла? (arrive)", "Has the package arrived?"],
+      ["Я не забыл встречу. (forget)", "I haven't forgotten the appointment."],
+      ["Я был в Пекине. (been to)", "I have been to Beijing."],
+      ["Я никогда не был в Шанхае.", "I have never been to Shanghai."],
+      ["Ты когда-нибудь был в Гуанчжоу?", "Have you ever been to Guangzhou?"],
+      ["Она никогда не была в Ханое.", "She has never been to Hanoi."],
+      ["Они уехали в Шанхай. (gone — их нет)", "They have gone to Shanghai."],
+      ["Я уже бывал в Шанхае. (been — опыт)", "I have been to Shanghai."],
+      ["Ты когда-нибудь ел phở в шесть утра? (eat)", "Have you ever eaten pho at 6 a.m.?"],
+      ["Мы пробовали Redis для этого кэша. (try)", "We have tried Redis for this cache."],
+      ["Он выступал на двух конференциях. (speak)", "He has spoken at two conferences."],
+      ["Я живу в Куйньоне уже год. (live)", "I have lived in Quy Nhon for a year."],
+      ["Она работает здесь с 2024. (work)", "She has worked here since 2024."],
+      ["Я знаю его много лет. (know)", "I have known him for years."],
+      ["Мы ждём уже двадцать минут. (wait)", "We have waited twenty minutes."],
+      ["Я сегодня прочитал три статьи. (read)", "I have read three papers today."],
+      ["Он не спал с инцидента. (sleep)", "He hasn't slept since the incident."],
+      ["Я уже влил PR. (merge)", "I have merged the PR."],
+      ["Мы ещё не задеплоили сервис. (deploy)", "We haven't deployed the service yet."],
+      ["Ты уже читал эту спеку? (read)", "Have you read this spec?"],
+      ["Я только что починил баг. (fix)", "I have just fixed the bug."],
+      ["Он ещё не приехал. (arrive)", "He hasn't arrived yet."],
+      ["Я работаю в Maincard уже два года.", "I have worked at Maincard for two years."],
+      ["Она знает его три года.", "She has known him for three years."],
+      ["Мы уже отправили фичу. (ship)", "We have already shipped the feature."],
+      ["Я ещё не закончил главу. (finish)", "I haven't finished the chapter yet."],
+      ["Ты уже закончил главу?", "Have you finished the chapter?"],
+      ["Она уже сдала экзамен. (pass)", "She has passed the exam."],
+      ["Я обновил документацию. (update)", "I have updated the docs."],
+      ["Мы нашли причину. (find)", "We have found the root cause."],
+      ["Я потерял ключи. (lose)", "I have lost my keys."],
+      ["Они уже смержили ветку.", "They have already merged the branch."],
+      ["Я забронировал билет. (book)", "I have booked the ticket."],
+      ["Мы ещё не решили. (decide)", "We haven't decided yet."],
+      ["Он уже прочитал статью.", "He has already read the paper."],
+      ["Я пересобрал индекс. (rebuild)", "I have rebuilt the index."],
+      ["Она только что звонила. (call)", "She has just called."],
+      ["Я выбрал тему. (choose)", "I have chosen the topic."],
+      ["Она уже ушла. (leave)", "She has left."],
+      ["Они ещё не ответили. (reply)", "They haven't replied yet."],
+      ["Я видел этот дифф. (see)", "I have seen this diff."],
+      ["Мы уже обсудили API. (discuss)", "We have already discussed the API."],
+      ["Я начал курс. (start)", "I have started the course."],
+      ["Он живёт здесь с 2024.", "He has lived here since 2024."],
+      ["Я знаю её с университета.", "I have known her since university."],
+      ["Она подала на визу. (apply)", "She has applied for the visa."],
+      ["Я ещё не подал на визу.", "I haven't applied for the visa yet."],
+      ["Ты уже бронировал отель?", "Have you booked the hotel?"],
+      ["Я прочитал контракт.", "I have read the contract."],
+      ["Они ещё не подписали контракт. (sign)", "They haven't signed the contract yet."],
+      ["Я только что отправил ревью.", "I have just sent the review."],
+      ["Она уже перевела текст. (translate)", "She has already translated the text."],
+      ["Я никогда не писал на Go до этой работы.", "I have never written in Go before this job."],
+      ["Ты когда-нибудь деплоил в прод?", "Have you ever deployed to production?"],
+      ["Мы покрыли это тестами. (cover)", "We have already covered this with tests."],
+      ["Я ещё не покрыл это тестами.", "I haven't covered this with tests yet."],
+      ["Он починил пайплайн.", "He has already fixed the pipeline."],
+      ["Я откатил релиз. (roll back)", "I have rolled back the release."],
+      ["Она ещё не зашла на созвон. (join)", "She hasn't joined the call yet."],
+      ["Я подготовил слайды. (prepare)", "I have prepared the slides."],
+      ["Мы согласовали оценку. (agree)", "We have already agreed on the estimate."],
+      ["Ты сохранил черновик? (save)", "Have you saved the draft?"],
+      ["Я ещё не сохранил черновик.", "I haven't saved the draft yet."],
+      ["Я сегодня три раза закоммитил. (commit)", "I have committed three times today."],
+      ["Я ещё не пушил. (push)", "I haven't pushed yet."],
+      ["Она решила задачу. (solve)", "She has already solved the problem."],
+      ["Я никогда не работал в казино-домене до Maincard.", "I have never worked in the casino domain before Maincard."],
+      ["Я открыл тикет. (open)", "I have opened the ticket."],
+      ["Он ещё не закрыл тикет. (close)", "He hasn't closed the ticket yet."],
+      ["Ты когда-нибудь писал мотивационное письмо?", "Have you ever written a motivation letter?"],
+      ["Я написал мотивационное письмо.", "I have written a motivation letter."],
+      ["Она живёт во Вьетнаме уже пять лет.", "She has lived in Vietnam for five years."],
+      ["Я не ел с утра.", "I haven't eaten since morning."],
+      ["Мы закончили рефакторинг.", "We have finished the refactoring."],
+      ["Я проверил типы. (check)", "I have checked the types."],
+      ["Они ещё не проверили типы.", "They haven't checked the types yet."],
+      ["Ты ставил Go на эту машину? (install)", "Have you installed Go on this machine?"],
+      ["Я поставил Go.", "I have installed Go."],
+      ["Я уже читал этот раздел.", "I have already read this section."],
+      ["Мы ещё не читали этот раздел.", "We haven't read this section yet."],
+      ["Я уже пообедал. (have had — частный случай)", "I have had lunch."],
+      ["Я ещё не обедал.", "I haven't had lunch yet."],
+      ["Ты уже обедал?", ["Have you had lunch?", "Have you had lunch yet?"]],
+      ["Этот ноут у меня с 2023.", "I have had this laptop since 2023."]
+    ];
+
+    const KEY = "pp-present-perfect-v2";
+
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function normalize(s) {
+      return s.trim().replace(/\u2019/g, "'").replace(/\s+/g, " ");
+    }
+
+    function expand(seed) {
+      const set = new Set();
+      const q = [normalize(seed)];
+      const rules = [
+        [/\bI have not\b/g, "I haven't"],
+        [/\bI haven't\b/g, "I have not"],
+        [/\bWe have not\b/g, "We haven't"],
+        [/\bWe haven't\b/g, "We have not"],
+        [/\bThey have not\b/g, "They haven't"],
+        [/\bThey haven't\b/g, "They have not"],
+        [/\bYou have not\b/g, "You haven't"],
+        [/\bShe has not\b/g, "She hasn't"],
+        [/\bShe hasn't\b/g, "She has not"],
+        [/\bHe has not\b/g, "He hasn't"],
+        [/\bHe hasn't\b/g, "He has not"],
+        [/\bI have (?!not\b)/g, "I've "],
+        [/\bI've /g, "I have "],
+        [/\bWe have (?!not\b)/g, "We've "],
+        [/\bWe've /g, "We have "],
+        [/\bThey have (?!not\b)/g, "They've "],
+        [/\bThey've /g, "They have "],
+        [/\bYou have (?!not\b)/g, "You've "],
+        [/\bYou've /g, "You have "],
+        [/\bShe has (?!not\b)/g, "She's "],
+        [/\bShe's /g, "She has "],
+        [/\bHe has (?!not\b)/g, "He's "],
+        [/\bHe's /g, "He has "]
+      ];
+      while (q.length) {
+        const cur = q.pop();
+        if (set.has(cur)) continue;
+        set.add(cur);
+        rules.forEach(function (r) {
+          const next = cur.replace(r[0], r[1]);
+          if (next !== cur && !set.has(next)) q.push(next);
+        });
+      }
+      return Array.from(set);
+    }
+
+    const BANK = RAW.map(function (row, i) {
+      const ru = row[0];
+      const seeds = [];
+      for (let k = 1; k < row.length; k++) {
+        if (Array.isArray(row[k])) seeds.push.apply(seeds, row[k]);
+        else seeds.push(row[k]);
+      }
+      let expected = [];
+      seeds.forEach(function (s) { expected = expected.concat(expand(s)); });
+      expected = Array.from(new Set(expected.map(normalize)));
+      return { id: String(i + 1), ru: ru, expected: expected };
+    });
+
+    function diffChars(expected, got) {
+      const e = [...expected];
+      const g = [...got];
+      const n = Math.max(e.length, g.length);
+      const out = [];
+      for (let i = 0; i < n; i++) {
+        if (i >= e.length) out.push({ ch: g[i], kind: "extra" });
+        else if (i >= g.length) out.push({ ch: e[i], kind: "miss" });
+        else if (e[i] === g[i]) out.push({ ch: g[i], kind: "ok" });
+        else out.push({ ch: g[i], kind: "bad" });
+      }
+      return out;
+    }
+
+    function bestDiff(expectedList, got) {
+      const g = normalize(got);
+      let best = null;
+      for (let i = 0; i < expectedList.length; i++) {
+        const e = expectedList[i];
+        const parts = diffChars(e, g);
+        const score = parts.filter(function (p) { return p.kind === "ok"; }).length;
+        const perfect = g === e;
+        if (!best || perfect || score > best.score) {
+          best = { exp: e, parts: parts, score: score, perfect: perfect };
+          if (perfect) break;
+        }
+      }
+      return best;
+    }
+
+    function escapeCh(ch) {
+      if (ch === " ") return "·";
+      if (ch === "<") return "&lt;";
+      if (ch === "&") return "&amp;";
+      return ch;
+    }
+
+    function renderDiff(el, parts) {
+      el.innerHTML = parts.map(function (p) {
+        const cls = p.kind === "ok" ? "ok" : p.kind === "miss" ? "miss" : "bad";
+        return "<span class=\"ch " + cls + "\">" + escapeCh(p.ch) + "</span>";
+      }).join("");
+    }
+
+    function loadStore() {
+      try { return JSON.parse(localStorage.getItem(KEY) || "{\"done\":{},\"answers\":{}}"); }
+      catch (e) { return { done: {}, answers: {} }; }
+    }
+    function saveStore(st) {
+      localStorage.setItem(KEY, JSON.stringify(st));
+    }
+
+    const tasksEl = document.getElementById("tasks");
+    const scoreEl = document.getElementById("score");
+    const barEl = document.getElementById("bar");
+    const onlyLeft = document.getElementById("onlyLeft");
+    let orderLeft = shuffle(BANK.map(function (x) { return x.id; }));
+
+    function stats(st) {
+      const n = BANK.length;
+      const d = Object.keys(st.done).length;
+      return { n: n, d: d, left: n - d };
+    }
+
+    function paintScore(st) {
+      const s = stats(st);
+      scoreEl.textContent = "закрыто " + s.d + " из " + s.n + " · осталось " + s.left;
+      barEl.style.width = (100 * s.d / s.n) + "%";
+    }
+
+    function orderedItems(st) {
+      const byId = {};
+      BANK.forEach(function (x) { byId[x.id] = x; });
+      const left = [];
+      const done = [];
+      orderLeft.forEach(function (id) {
+        if (st.done[id]) done.push(byId[id]);
+        else left.push(byId[id]);
+      });
+      BANK.forEach(function (x) {
+        if (orderLeft.indexOf(x.id) === -1) {
+          if (st.done[x.id]) done.push(x); else left.push(x);
+        }
+      });
+      return onlyLeft.checked ? left : left.concat(done);
+    }
+
+    function mount() {
+      const st = loadStore();
+      paintScore(st);
+      tasksEl.innerHTML = "";
+      const list = orderedItems(st);
+      if (!list.length) {
+        tasksEl.innerHTML = "<p class=\"muted\">Все 100 закрыты. Сброс — если хочешь пройти снова.</p>";
+        return;
+      }
+      list.forEach(function (item, i) {
+        const done = !!st.done[item.id];
+        const wrap = document.createElement("div");
+        wrap.className = "task " + (done ? "done" : "todo");
+        wrap.innerHTML =
+          "<p class=\"prompt\"><b>" + (i + 1) + ".</b> " + item.ru + "</p>" +
+          "<div class=\"row\">" +
+          "<input type=\"text\" spellcheck=\"false\" autocomplete=\"off\">" +
+          "<button type=\"button\">Проверить</button>" +
+          "</div>" +
+          "<div class=\"letters\"></div>" +
+          "<p class=\"fb\"></p>";
+        const input = wrap.querySelector("input");
+        const btn = wrap.querySelector("button");
+        const letters = wrap.querySelector(".letters");
+        const fb = wrap.querySelector(".fb");
+        if (st.answers[item.id]) input.value = st.answers[item.id];
+        let fails = 0;
+
+        function check() {
+          const got = input.value;
+          if (!normalize(got)) return;
+          const best = bestDiff(item.expected, got);
+          renderDiff(letters, best.parts);
+          const store = loadStore();
+          store.answers[item.id] = normalize(got);
+          if (best.perfect) {
+            store.done[item.id] = true;
+            saveStore(store);
+            wrap.className = "task done";
+            fb.textContent = "Совпадение.";
+            paintScore(store);
+            if (onlyLeft.checked) wrap.remove();
+          } else {
+            delete store.done[item.id];
+            saveStore(store);
+            wrap.className = "task todo";
+            fails += 1;
+            fb.textContent = fails < 2
+              ? "Не совпало посимвольно. Эталон скрыт."
+              : "Эталон: " + best.exp;
+            paintScore(store);
+          }
+        }
+
+        btn.addEventListener("click", check);
+        input.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter") check();
+        });
+        tasksEl.appendChild(wrap);
+      });
+    }
+
+    document.getElementById("reshuffle").addEventListener("click", function () {
+      const st = loadStore();
+      const left = BANK.filter(function (x) { return !st.done[x.id]; }).map(function (x) { return x.id; });
+      const done = BANK.filter(function (x) { return st.done[x.id]; }).map(function (x) { return x.id; });
+      orderLeft = shuffle(left).concat(done);
+      mount();
+    });
+    onlyLeft.addEventListener("change", mount);
+    document.getElementById("resetDone").addEventListener("click", function () {
+      localStorage.removeItem(KEY);
+      orderLeft = shuffle(BANK.map(function (x) { return x.id; }));
+      mount();
+    });
+    mount();
+  </script>
+</body>
+</html>

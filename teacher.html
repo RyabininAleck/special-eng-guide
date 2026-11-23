@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teacher — how to build a lesson</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --bad: #f87171;
+      --radius: 16px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(56, 189, 248, 0.12), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 28px 20px 80px; }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 12px 20px; margin: 0 -20px 32px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav a {
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      padding: 6px 10px; border-radius: 999px;
+    }
+    .nav a:hover { color: #7dd3fc; }
+    .kicker {
+      color: var(--accent); font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; font-weight: 700;
+    }
+    h1 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; margin: 8px 0 12px; }
+    h2 { font-size: 1.22rem; letter-spacing: -0.02em; margin: 28px 0 10px; }
+    p, li { margin: 0 0 12px; }
+    .muted, .ru { color: var(--muted); }
+    a { color: #7dd3fc; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 36%), var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 22px 18px;
+      margin: 16px 0;
+    }
+    .ban { color: var(--bad); }
+    code, .path {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.9em;
+      background: #0b1220;
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+    ol { padding-left: 1.2em; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 8px 0 4px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html">All lessons</a>
+      <a href="anki.html">Anki</a>
+      <a href="specs/HTML_LESSON_SPEC.md">Full spec (md)</a>
+      <a href="specs/HTML_LESSON_TEMPLATES.md">Templates (md)</a>
+    </nav>
+
+    <p class="kicker">for teachers</p>
+    <h1>Как собрать HTML-урок</h1>
+    <p class="muted">Один файл = один урок. HTML + CSS + JS внутри. Без CDN, открывается как страница на GitHub Pages.</p>
+
+    <div class="card">
+      <h2>Репозиторий</h2>
+      <table>
+        <thead><tr><th>Путь</th><th>Что это</th></tr></thead>
+        <tbody>
+          <tr><td><span class="path">index.html</span></td><td>Каталог уроков (домашняя страница Pages)</td></tr>
+          <tr><td><span class="path">anki.html</span></td><td>Скачать CSV для импорта в Anki</td></tr>
+          <tr><td><span class="path">html/</span></td><td>Готовые интерактивные уроки — копировать отсюда</td></tr>
+          <tr><td><span class="path">lessons/</span></td><td>Исходные markdown-конспекты (лексика, handout)</td></tr>
+          <tr><td><span class="path">specs/</span></td><td>Полная спецификация и куски упражнений</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Эталоны (скопировать файл)</h2>
+      <table>
+        <thead><tr><th>Задача</th><th>Файл</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Грамматическая глава, банк RU→EN</td>
+            <td><a href="html/perfect-have-had.html">html/perfect-have-had.html</a></td>
+          </tr>
+          <tr>
+            <td>Лексика по блокам: карточки + Gap + Match</td>
+            <td><a href="html/health.html">html/health.html</a></td>
+          </tr>
+          <tr>
+            <td>Много однотипных групп (синонимы)</td>
+            <td><a href="html/synonyms.html">html/synonyms.html</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">Новый урок с несколькими типами заданий: скопировать <code>html/health.html</code> → <code>html/my-topic.html</code>, выкинуть лишние секции, заменить массивы, оставить <code>&lt;script&gt;</code>.</p>
+    </div>
+
+    <div class="card">
+      <h2 class="ban">Жёсткие запреты</h2>
+      <ul>
+        <li>Не мешать темы. Одна форма / один паттерн / один набор слов.</li>
+        <li>Никаких тестов с вариантами (radio, A/B/C, клик по готовой фразе как ответ).</li>
+        <li>Упражнение = ученик сам пишет в <code>input</code> / <code>textarea</code>.</li>
+        <li>Словарные блоки и задания всегда shuffle (Fisher–Yates) при загрузке и по «ещё раз».</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Язык интерфейса</h2>
+      <p><strong>English:</strong> кнопки, навигация, названия разделов, бейджи Type · Gap / Match, счётчики.</p>
+      <p><strong>Русский:</strong> повествовательная теория, переводы, «почему так».</p>
+    </div>
+
+    <div class="card">
+      <h2>Жанр главы</h2>
+      <p>Не шпаргалка и не «3 примера + формула + квиз». Сначала происхождение и смысл, потом формула. Эталон длины — Present Perfect.</p>
+      <ol>
+        <li>Kicker + заголовок — что учим одной строкой</li>
+        <li>Происхождение формы</li>
+        <li>Смысл (камера говорящего)</li>
+        <li>Формула — следствие, не наоборот</li>
+        <li>Одно сквозное предложение / карточки слов</li>
+        <li>Граница / ловушки</li>
+        <li>Письмо (Gap, Match, Dictation…)</li>
+        <li>Cheat sheet внизу</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Порядок работы</h2>
+      <ol>
+        <li>Прочитать handout в <code>lessons/</code>, выписать секции.</li>
+        <li>Скопировать эталон из <code>html/</code>.</li>
+        <li>Заменить <code>KEY_BASE</code> (уникально на урок), title, nav, теорию, <code>VOCAB_BLOCKS</code> / <code>DRILL_SECTIONS</code> / <code>MATCH_SETS</code>.</li>
+        <li><code>data-drill</code> / <code>data-match</code> должны совпадать с ключами в объектах.</li>
+        <li>EN в UI, RU в теории, Check с классом <code>btn</code>, поток сверху вниз.</li>
+        <li>Добавить карточку на <a href="index.html">index.html</a>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Полные документы</h2>
+      <p>На GitHub markdown рендерится. С Pages <code>.md</code> может открыться как сырой текст — это нормально, источник правды тот же.</p>
+      <ul>
+        <li><a href="specs/HTML_LESSON_SPEC.md">specs/HTML_LESSON_SPEC.md</a> — стиль, запреты, проверка букв, shuffle</li>
+        <li><a href="specs/HTML_LESSON_TEMPLATES.md">specs/HTML_LESSON_TEMPLATES.md</a> — каркас секции, CSS заданий, форматы данных</li>
+        <li><a href="lessons/health.md">lessons/health.md</a> · <a href="lessons/synonyms.md">synonyms.md</a> · <a href="lessons/medical.md">medical.md</a> (конспект без HTML)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

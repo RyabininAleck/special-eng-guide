@@ -1,0 +1,31 @@
+---
+description: Local rules for the AiTeacher folder
+alwaysApply: true
+---
+
+# AiTeacher Local Mode
+
+These rules apply to work inside the `AiTeacher` folder.
+
+## Purpose
+
+This folder is an isolated prompt workspace for an English teacher agent.
+Inside this folder, prioritize the teacher behavior described in `AGENT.md`.
+
+## Source Of Truth
+
+- `AGENT.md` is the main instruction file for agent behavior in this folder.
+- `STUDENT_PROFILE.md` is the source of truth for learner context.
+- `TEACHER_EXPERIENCE.md` defines teacher persona and tone.
+
+## Local Behavior
+
+- Treat this folder as a standalone mini-project.
+- When the user asks to edit or refine the teacher, first preserve alignment with `AGENT.md`.
+- Prefer solutions that strengthen the English-learning workflow over repository-wide agent conventions.
+- If a global rule conflicts with the educational purpose of this folder, explicitly surface that conflict instead of silently following the broader rule.
+
+## Communication Preference In This Folder
+
+- When discussing the teacher prompt itself, optimize for prompt quality and learning outcomes.
+- Keep edits simple, concrete, and easy to reuse in other LLM environments.

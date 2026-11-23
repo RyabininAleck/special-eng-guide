@@ -1,0 +1,142 @@
+Front;Back
+"глагол: намереваться
+сущ.: намерение
+прил.: намеренный";"verb: intend
+noun: intention
+adj: intentional
+→ She has a clear intention to study CS.
+→ I am intentional about my daily practice."
+"глагол: желать
+сущ.: желание
+прил.: желанный";"verb: desire / want
+noun: desire
+adj: desirable
+→ I want to specialize in artificial intelligence.
+→ This is a desirable skill for the program."
+"глагол: пытаться
+сущ.: попытка";"verb: attempt / try
+noun: attempt
+→ He attempted to fix the bug before deployment.
+→ It was a serious attempt to improve latency."
+"сущ.: обязанность
+прил.: обязанный
+глагол: обязывать";"noun: obligation
+adj: obliged / obligated
+verb: oblige
+→ The rules create an obligation to submit all documents.
+→ Applicants are required to meet the deadline."
+"глагол: выполнять
+сущ.: выполнение";"verb: perform
+noun: performance
+→ Pattern B shows who performs the action.
+→ The team delivered a strong performance under pressure."
+"глагол: ожидать
+сущ.: ожидание";"verb: expect
+noun: expectation
+→ I expect to finish the module by Friday.
+→ The result exceeded my expectations."
+"глагол: соглашаться
+сущ.: согласие";"verb: agree
+noun: agreement
+→ They agreed to collaborate on the robotics project.
+→ We reached an agreement on the project scope."
+"глагол: отказываться
+сущ.: отказ";"verb: refuse
+noun: refusal
+→ She refused to sign the contract without revisions.
+→ His refusal slowed the whole process."
+"глагол: обещать
+сущ.: обещание";"verb: promise
+noun: promise
+→ They promised to help with the integration.
+→ He made a promise to deliver by Friday."
+"глагол: позволять себе
+прил.: доступный";"verb: afford
+adj: affordable
+→ I can't afford to wait another semester.
+→ This option is more affordable for students."
+"глагол: притворяться";"verb: pretend
+→ He pretended to understand the proof.
+→ Don't pretend to know what you haven't tested."
+"глагол: казаться";"verb: seem
+→ We seem to have underestimated the effort.
+→ The fix seems to have worked."
+"глагол: появляться, казаться
+сущ.: появление";"verb: appear
+noun: appearance
+→ The system appears to have recovered after the restart.
+→ His calm appearance helped in the interview."
+"глагол: поощрять
+сущ.: поощрение";"verb: encourage
+noun: encouragement
+→ She encouraged us to participate in the hackathon.
+→ Your encouragement helped me keep going."
+"глагол: позволять, разрешать
+сущ.: разрешение";"verb: allow
+noun: allowance / permission
+→ The program allows students to use the research lab.
+→ They were given permission to access the server room."
+"глагол: убеждать
+сущ.: убеждение";"verb: persuade
+noun: persuasion
+→ He persuaded me to join the motorsport team.
+→ It took some persuasion to change my mind."
+"глагол: требовать
+сущ.: требование";"verb: require
+noun: requirement
+→ The university requires applicants to submit a motivation letter.
+→ This course has strict entry requirements."
+"глагол: избегать";"verb: avoid
+→ He avoided mentioning his previous employer.
+→ Avoid deploying on Friday without full testing."
+"глагол: возражать; не возражать
+сущ.: возражение";"verb: mind
+noun: objection
+→ Would you mind waiting outside for a moment?
+→ I don't mind helping with the review."
+"глагол: предлагать
+сущ.: предложение";"verb: suggest
+noun: suggestion
+→ She suggested applying for a research internship.
+→ That was a useful suggestion."
+"глагол: рассматривать
+сущ.: рассмотрение";"verb: consider
+noun: consideration
+→ He considered transferring to a research-focused track.
+→ Cost is an important consideration."
+"глагол: практиковать
+сущ.: практика";"verb: practice
+noun: practice
+→ I practice speaking English every morning.
+→ Daily practice builds confidence."
+"глагол: отрицать
+сущ.: отрицание";"verb: deny
+noun: denial
+→ She denied deleting the production database.
+→ He was in denial about the bug."
+"глагол: признавать
+сущ.: признание";"verb: admit
+noun: admission
+→ He admitted making a mistake in the deployment.
+→ His admission saved the team a lot of time."
+"глагол: привыкать к";"phrase: get used to + -ing
+→ She is getting used to working under tight deadlines.
+→ You'll get used to reading academic papers in English."
+"глагол: с нетерпением ждать";"phrase: look forward to + -ing
+→ I look forward to starting my CS program at ZJU.
+→ We look forward to hearing from the admissions office."
+"глагол: возражать против";"phrase: object to + -ing
+→ He objected to being reassigned without notice.
+→ Many students objected to changing the exam format."
+"глагол: признавать (в чём-то)";"phrase: admit to + -ing
+→ I admit to underestimating the complexity of the project.
+→ She admitted to ignoring the security warning."
+"глагол: посвящать";"phrase: devote ... to + -ing / noun
+→ We are devoted to building reliable systems.
+→ He devotes most of his time to research."
+"глагол: предпочитать X вместо Y";"phrase: prefer ... to ...
+→ I prefer working in small teams to working in huge corporations.
+→ She prefers Python to Java for prototyping."
+"предлог: в дополнение к";"phrase: in addition to + noun / -ing
+→ In addition to algorithms, the program covers systems design.
+→ In addition to studying, he works on open-source projects."

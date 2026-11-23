@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- UI: English. Theory/explanations: Russian. -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Глава. Health and Illness — лексика</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-2: #243044;
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --ok: #34d399;
+      --bad: #f87171;
+      --warn: #fbbf24;
+      --radius: 16px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --page-max: min(1440px, 100vw);
+      --page-pad-x: clamp(16px, 3.5vw, 56px);
+      --readable: 68ch;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(56, 189, 248, 0.12), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap {
+      width: 100%;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: clamp(20px, 2.5vw, 36px) var(--page-pad-x) 80px;
+    }
+    .lesson-intro { max-width: var(--readable); }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 12px var(--page-pad-x);
+      margin: 0 calc(-1 * var(--page-pad-x)) 32px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav a {
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      padding: 6px 10px; border-radius: 999px;
+    }
+    .nav a:hover { color: #7dd3fc; }
+    .kicker {
+      color: var(--accent); font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; font-weight: 700;
+    }
+    h1 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.2; margin: 8px 0 12px; }
+    h2 { font-size: 1.28rem; letter-spacing: -0.02em; margin: 0 0 12px; }
+    h3 { font-size: 1.02rem; margin: 22px 0 8px; }
+    p { margin: 0 0 14px; }
+    .lead { color: var(--muted); font-size: 1.08rem; }
+    section { margin: 40px 0; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 36%), var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 26px 22px;
+    }
+    .chapter-num { color: var(--muted); font-size: 13px; letter-spacing: 0.12em; }
+    .formula {
+      font-family: ui-monospace, "SF Mono", Consolas, monospace;
+      background: #0b1220; border: 1px solid var(--line);
+      border-radius: 12px; padding: 14px 16px; margin: 14px 0 18px;
+    }
+    .en { color: #f8fafc; }
+    .ru, .muted { color: var(--muted); }
+    .ex {
+      margin: 14px 0; padding: 14px 16px;
+      background: var(--card-2); border-radius: 12px;
+    }
+    .note {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px; border-radius: 0 12px 12px 0;
+      color: var(--muted); margin: 16px 0;
+    }
+    .dim { opacity: 0.5; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 12px 0 8px; }
+    th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; }
+    .prose p:last-child { margin-bottom: 0; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+    .row input,
+    .task-line input {
+      background: #0b1220; color: var(--text); border: 1px solid var(--line);
+      border-radius: 12px; padding: 10px 12px; font: inherit;
+    }
+    .row input {
+      flex: 1; min-width: min(220px, 100%);
+    }
+    .row button, .btn, .task-line button.btn {
+      background: var(--accent); color: #082f49; border: 0; border-radius: 999px;
+      padding: 10px 14px; font-weight: 700; cursor: pointer; font-family: inherit;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+    .task-line button.btn {
+      flex-shrink: 0;
+      align-self: center;
+    }
+    .ch {
+      display: inline-block; min-width: 0.72em; text-align: center;
+      font-family: ui-monospace, Consolas, monospace; font-size: 1.05rem;
+    }
+    .ch.ok { color: var(--ok); }
+    .ch.bad, .ch.extra { color: var(--bad); text-decoration: underline; }
+    .ch.miss { color: #64748b; border-bottom: 1px dashed #64748b; }
+    .fb { margin: 8px 0 0; font-size: 0.92rem; color: var(--muted); min-height: 1.2em; }
+    .task {
+      margin: 0;
+      padding: 10px 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      border-bottom: 1px solid var(--line);
+    }
+    .task:last-child { border-bottom: none; }
+    .task.todo { opacity: 1; }
+    .task.done {
+      opacity: 0.32;
+      filter: saturate(0.35);
+    }
+    .task-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+    }
+    .task-num { color: var(--muted); font-weight: 700; font-size: 0.9rem; }
+    .task-body {
+      flex: 1 1 200px;
+      min-width: 0;
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+    .task-line input {
+      flex: 1 1 160px;
+      min-width: min(140px, 100%);
+      max-width: 380px;
+      margin: 0;
+    }
+    .task .letters { margin-top: 6px; }
+    .task .fb { margin-top: 4px; }
+    .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+    .score { color: var(--muted); }
+    .bar { height: 6px; background: #0b1220; border-radius: 99px; overflow: hidden; margin: 8px 0 14px; }
+    .bar > i { display: block; height: 100%; background: var(--accent); width: 0; }
+    .sticky-prog {
+      position: sticky; top: 48px; z-index: 14;
+      background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(10px);
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px 14px; margin-bottom: 14px;
+    }
+    label.chk { color: var(--muted); font-size: 0.9rem; display: flex; gap: 8px; align-items: center; }
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+      gap: 10px;
+    }
+    .task-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .lesson-practice { margin-top: 18px; }
+    .drill-duo > .drill-section + .drill-section {
+      margin-top: 8px;
+    }
+    .card.prose > .teacher-en { max-width: var(--readable); }
+    @media (min-width: 1180px) {
+      .card.prose > .teacher-en { max-width: none; }
+    }
+    .teacher-en {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+      border-left: 3px solid var(--warn);
+      padding: 10px 14px;
+      margin: 14px 0;
+      background: rgba(251, 191, 36, 0.06);
+      border-radius: 0 10px 10px 0;
+    }
+    .def-en { color: #94a3b8; font-size: 0.92rem; margin: 4px 0 0; }
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .drill-section { margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--line); }
+    .task-type {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .task-type.match { background: rgba(251, 191, 36, 0.18); color: #fcd34d; }
+    .task-type.dictation { background: rgba(52, 211, 153, 0.15); color: #6ee7b7; }
+    .task-type.fix { background: rgba(248, 113, 113, 0.15); color: #fca5a5; }
+    .match-sheet { margin: 12px 0 8px; }
+    .match-head {
+      display: grid;
+      grid-template-columns: minmax(140px, 34%) 1fr;
+      gap: 16px 24px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      padding: 0 12px 6px;
+    }
+    .match-lines { display: flex; flex-direction: column; gap: 8px; }
+    .match-line {
+      display: grid;
+      grid-template-columns: minmax(140px, 34%) 1fr;
+      gap: 16px 24px;
+      align-items: stretch;
+      padding: 8px 0;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+    }
+    .match-line.is-ok { background: rgba(52, 211, 153, 0.06); }
+    .match-line.is-bad { background: rgba(248, 113, 113, 0.05); }
+    .match-line.is-ok .match-left { opacity: 0.55; }
+    .match-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f8fafc;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .match-left .num { color: var(--muted); font-weight: 700; min-width: 1.4em; }
+    .match-drop {
+      min-height: 3.4em;
+      display: flex;
+      align-items: center;
+      border: 1px dashed rgba(148, 163, 184, 0.35);
+      border-radius: 10px;
+      padding: 6px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .match-drop.drag-over {
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .match-card {
+      width: 100%;
+      cursor: grab;
+      padding: 9px 11px;
+      background: #0b1220;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+      user-select: none;
+      touch-action: none;
+    }
+    .match-card:active { cursor: grabbing; }
+    .match-card.dragging { opacity: 0.4; }
+    .match-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 14px;
+    }
+    .match-msg { flex: 1; min-width: 200px; font-size: 0.92rem; color: var(--muted); }
+    @media (max-width: 640px) {
+      .match-head, .match-line { grid-template-columns: 1fr; gap: 8px; }
+    }
+    @media print {
+      .nav, .drill-root, .match-root, .toolbar { display: none !important; }
+      body { background: #fff; color: #111; }
+      .card, .ex, .formula { box-shadow: none; background: #fff; color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="../index.html">All lessons</a>
+      <a href="#for-teachers">Teachers</a>
+      <a href="#origin">Origin</a>
+      <a href="#zones">Patterns</a>
+      <a href="#feel">Feelings</a>
+      <a href="#pain">Pain</a>
+      <a href="#symptoms">Symptoms</a>
+      <a href="#pp">Present Perfect</a>
+      <a href="#skin">Skin</a>
+      <a href="#dictation">Dictation</a>
+      <a href="#thread">Dialogue</a>
+      <a href="#mixed">Exercises</a>
+      <a href="#border">Traps</a>
+      <a href="#cheat">Cheat sheet</a>
+    </nav>
+
+    <div class="lesson-intro">
+    <p class="chapter-num">ENGLISH VOCABULARY · HEALTH &amp; ILLNESS</p>
+    <p class="kicker">лексика здоровья (A2) + Present Perfect в теме болезни</p>
+    <h1>Health and Illness:<br>как в английском говорят о теле</h1>
+    <p class="lead">
+      Русский: «у меня болит голова». Английский чаще <span class="en">I have a headache</span>
+      (симптом как «вещь») или <span class="en">My throat is sore</span> (орган как подлежащее).
+      <span class="en">I feel sick</span> — про всё тело сразу, без точки на карте.
+    </p>
+    </div>
+
+    <section id="for-teachers">
+      <div class="card prose">
+        <h2>For teachers</h2>
+        <p class="ru">
+          Порядок как в <code>lessons/health.md</code>: самочувствие → боль → симптомы → кожа → диктант → смешанные → диалог.
+          Упражнения только письменные. Проверка посимвольно; эталон после <b>второй</b> ошибки. Прогресс в <code>localStorage</code> по блокам.
+          <b>Пропуск</b> — одно слово. <b>Перевод</b> — целое предложение. <b>Диктант</b> — строка целиком.
+          <b>Match</b> — drag definitions onto the phrase row; <b>Check all</b>.
+        </p>
+        <p class="teacher-en">
+          Grammar note (PP): <i>have/has + V3</i> for open illness window — <i>I have had a fever since Monday</i>; closed time <i>yesterday</i> → Past Simple, not PP.
+        </p>
+      </div>
+    </section>
+
+    <section id="origin">
+      <div class="card prose">
+        <h2>I. Where these patterns come from</h2>
+        <p class="teacher-en">
+          Pedagogical focus: three productive frames — <b>have a …ache</b>, <b>feel + adjective</b>, <b>My + body part + is + adjective</b>.
+          Contrast with ungrammatical <i>I am headache</i>. Russian learners often calque from «у меня болит»; English prefers possession or body-part predicates.
+        </p>
+        <p>
+          В английском, как и в русском «у меня есть», симптом часто оформляют как <b>обладание</b>.
+          Голова не «болит сама по себе» в грамматике — у тебя <i>есть</i> головная боль, как предмет:
+          <span class="en">I have a headache</span>. Суффикс <b>-ache</b> (headache, toothache, backache,
+          stomach ache) — старое «боль в X». Слово <i>ache</i> можно и отдельно, но на A2 ты держишь связку
+          <b>have a …ache</b>.
+        </p>
+        <p>
+          Второй корень — глагол <b>feel</b>: не «где», а «каково мне целиком».
+          <span class="en">I feel sick</span> — про общее самочувствие, без точки на карте тела.
+          Третий — части тела как подлежащее: <span class="en">My throat is sore</span>.
+          Горло не «имеется», оно <i>имеет свойство</i>: болезненное, заложенное, текущее.
+        </p>
+        <div class="formula">
+          have a + [head|tooth|back|stomach] + ache &nbsp;·&nbsp; feel + (fine / sick / dizzy / hot …)<br>
+          My + body part + is + (sore / stuffy / runny / itchy)<br>
+          It hurts when I + verb &nbsp;·&nbsp; I was bitten by + animal
+        </div>
+        <p>
+          Русское «мне кружится голова» ближе к <span class="en">I feel dizzy</span>, не к
+          <span class="en">My head is dizzy</span> (так почти не говорят). Русское «заложен нос» —
+          <span class="en">My nose is stuffy</span> или <span class="en">I have a stuffy nose</span>.
+          «Насморк» с жидкостью — <span class="en">runny</span>, не путать со <span class="en">stuffy</span>:
+          одно про проходимость, другое про слизь.
+        </p>
+        <p class="note">
+          Объём: бытовой разговор о болезни (врач, друг, отпроситься) — не клиническая лексика и не продвинутая грамматика.
+        </p>
+      </div>
+    </section>
+
+    <section id="zones">
+      <div class="card prose">
+        <h2>II. Four zones — where to put each word</h2>
+        <p class="teacher-en">
+          When students describe sickness, they should pick a zone first: general state, localized pain, symptom noun, or skin/bites.
+          Mixing frames is fine in discourse, but each clause should use a valid pattern.
+        </p>
+        <p>
+          Представь звонок коллеге: «не приду на созвон». Сначала общее (<i>feel</i>),
+          потом место (<i>have a …ache</i> / <i>my X is …</i>), потом симптом как явление
+          (cough, fever), потом кожа и укусы. Перепрыгивать зоны можно, но шаблон должен быть верным.
+        </p>
+        <table>
+          <thead><tr><th>Зона</th><th>Каркас</th><th>Зачем</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Общее состояние</td>
+              <td class="en">I feel … / I'm better / worse / recovering</td>
+              <td>Нет точки на теле — только ты и твоё самочувствие.</td>
+            </tr>
+            <tr>
+              <td>Локальная боль</td>
+              <td class="en">I have a headache … · My throat is sore</td>
+              <td>Названа зона или орган.</td>
+            </tr>
+            <tr>
+              <td>Симптом</td>
+              <td class="en">a cough · a fever · high temperature</td>
+              <td>Явление, не только «болит».</td>
+            </tr>
+            <tr>
+              <td>Кожа и укусы</td>
+              <td class="en">itchy · rash · bitten by · bee sting</td>
+              <td>Снаружи; bite vs sting; scratch.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="feel">
+      <div class="card prose card-lesson">
+        <div class="lesson-theory">
+          <p class="section-tag">health.md · Feelings</p>
+          <h2>III. Feelings (general state)</h2>
+          <p class="teacher-en">
+            <b>I feel + adjective</b> — whole-person state, no body-part subject. Includes recovery: <i>I'm better / worse / recovering</i>.
+            Teaches fine vs great, sick vs ill, tired vs exhausted (stronger).
+          </p>
+          <p class="ru muted">
+            <b>Feel</b> + прилагательное — без указания «где болит». Не путать с <i>I'm a doctor</i> (профессия).
+          </p>
+          <div id="feel-cards" class="vocab-grid"></div>
+        </div>
+        <div class="lesson-practice drill-duo">
+          <div class="drill-section">
+            <span class="section-tag">Type · Gap</span>
+            <p class="ru muted"><i>health.md</i>, §1 — пропуски.</p>
+            <div class="drill-root" data-drill="feel"></div>
+          </div>
+          <div class="drill-section">
+            <span class="section-tag">Type · Match</span>
+            <p class="ru muted">§2 — перетащи определения в нужные строки.</p>
+            <div class="match-root" data-match="feel"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pain">
+      <div class="card prose card-lesson">
+        <div class="lesson-theory">
+          <p class="section-tag">health.md · Pain</p>
+          <h2>IV. Pain (where it hurts)</h2>
+          <p class="teacher-en">
+            <b>Have a …ache</b> for head/tooth/back/stomach. <b>My throat is sore</b>. Nose: <b>stuffy</b> (blocked) vs <b>runny</b> (liquid).
+            <b>It hurts when I + verb</b> for swallow / breathe / move.
+          </p>
+          <p>
+            <b>Have a …ache</b> — классика для головы, зуба, спины, желудка.
+            <b>My … is sore</b> — горло. Нос: <b>stuffy</b> (не дышу) vs <b>runny</b> (течёт).
+            <b>It hurts when I …</b> — боль при действии: swallow, breathe, move.
+          </p>
+          <div id="pain-cards" class="vocab-grid"></div>
+        </div>
+        <div class="lesson-practice drill-duo">
+          <div class="drill-section">
+            <span class="section-tag">Type · Gap</span>
+            <p class="ru muted"><i>health.md</i>, боль §1.</p>
+            <div class="drill-root" data-drill="pain"></div>
+          </div>
+          <div class="drill-section">
+            <span class="section-tag">Type · Match</span>
+            <p class="ru muted">§2 — десять пар.</p>
+            <div class="match-root" data-match="pain"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="symptoms">
+      <div class="card prose card-lesson">
+        <div class="lesson-theory">
+          <p class="section-tag">health.md · Symptoms</p>
+          <h2>V. Symptoms</h2>
+          <p class="teacher-en">
+            Cough: <b>dry</b> (no mucus) vs <b>wet</b> (with mucus). <b>Fever</b> / <b>high temperature</b>.
+            Injury words: <b>broken</b>, <b>bruise</b>, <b>cut</b>. Itch as verb (<i>My arm itches</i>) vs adjective (<i>itchy</i>).
+          </p>
+          <p class="ru muted">
+            <b>A cough</b> — dry (без слизи) или wet (со слизью). <b>Fever</b> / <b>high temperature</b>
+            — тело жарче нормы. <b>Broken</b>, <b>bruise</b>, <b>cut</b> — разные повреждения.
+          </p>
+          <div id="symptom-cards" class="vocab-grid"></div>
+        </div>
+        <div class="lesson-practice drill-duo">
+          <div class="drill-section">
+            <span class="section-tag">Type · Gap</span>
+            <div class="drill-root" data-drill="symptoms"></div>
+          </div>
+          <div class="drill-section">
+            <span class="section-tag">Type · Match</span>
+            <div class="match-root" data-match="symptoms"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pp">
+      <div class="card prose card-lesson">
+        <div class="lesson-theory">
+        <p class="section-tag">Grammar bridge</p>
+        <h2>V bis. Present Perfect + health</h2>
+        <p class="teacher-en">
+          Vocabulary alone uses <i>feel / have a headache</i> in the present. Present Perfect links illness to <b>now</b>:
+          a result you still carry (<i>I have broken my arm</i>), an open period (<i>since Monday</i>, <i>for two days</i>),
+          or experience (<i>Have you ever had food poisoning?</i>). Form: <b>have/has + V3</b>. With <i>have</i> as the main verb:
+          <i>have had a fever</i>. Not for closed past times with <i>yesterday</i> (use Past Simple — <i>I was bitten yesterday</i>).
+        </p>
+        <div class="formula">
+          I have / She has + had a fever · taken medicine · broken my arm · recovered<br>
+          I haven't recovered yet. · Have you seen a doctor yet?<br>
+          I have felt terrible since yesterday. · How long have you had this cough?
+        </div>
+        <div class="ex">
+          <p class="en">I have had a sore throat since Monday. <span class="ru">— still sore now.</span></p>
+          <p class="en">She hasn't taken a painkiller yet. <span class="ru">— still no pill.</span></p>
+          <p class="en dim">I have had lunch yesterday. <span class="ru">— wrong; yesterday → Past Simple.</span></p>
+          <p class="en">I was bitten by a dog yesterday. <span class="ru">— closed time, not PP.</span></p>
+        </div>
+        </div>
+        <div class="lesson-practice">
+          <div class="drill-section">
+            <span class="section-tag">Type · Present Perfect</span>
+            <p class="ru muted">have/has + V3 с лексикой темы.</p>
+            <div class="drill-root" data-drill="pp"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skin">
+      <div class="card prose card-lesson">
+        <div class="lesson-theory">
+        <p class="section-tag">health.md · Skin, bites, advice</p>
+        <h2>VI. Skin, bites, and everyday advice</h2>
+        <p class="teacher-en">
+          <b>Bite</b> (dog, mosquito) vs <b>sting</b> (bee). Passive: <i>I was bitten by…</i>
+          Fixed phrases: <i>take a day off</i>, <i>Get well soon!</i>, <i>stay in bed</i>, <i>painkiller</i>, <i>food poisoning</i>.
+        </p>
+        <p class="ru muted">
+          <b>Itch</b> (глагол) / <b>itchy</b> (прилагательное): <span class="en">My arm itches</span> =
+          <span class="en">My skin is itchy</span>. Собака <b>bites</b>, пчела <b>stings</b> — не наоборот.
+          Пассив: <span class="en">I was bitten by a dog</span>. <b>Pimple</b> — маленький красный бугор;
+          <b>bruise</b> — тёмное пятно после удара.
+        </p>
+        <div id="skin-cards" class="vocab-grid"></div>
+        </div>
+        <div class="lesson-practice">
+          <div class="drill-section">
+            <span class="section-tag">Type · Gap</span>
+            <div class="drill-root" data-drill="skin"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dictation">
+      <div class="card prose">
+        <p class="section-tag">health.md · Dictation</p>
+        <h2>VII. Dictation (listen → write)</h2>
+        <p class="ru muted">
+          В классе: дважды прочитать вслух в нормальном темпе. Дома: по подсказке набрать строку. Наборы A, B; реплики диалога — отдельные пункты.
+        </p>
+        <p class="ru muted">В классе: преподаватель читает вслух. Дома: подсказка RU → воспроизведи EN.</p>
+        <div class="drill-section">
+          <span class="section-tag">Type · Dictation</span>
+          <div class="drill-root" data-drill="dictation"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="thread">
+      <div class="card prose">
+        <h2>VIII. One cold — story + dialogue</h2>
+        <p class="ru muted">
+          Для устной отработки: terrible → жар и горло → сухой кашель и заложенный нос → врач и day off → выздоровление.
+          Ниже — эталон диалога; письменные реплики — в диктанте и в блоке упражнений.
+        </p>
+        <p>
+          Утро: <span class="en">I feel terrible</span>. Голова — <span class="en">I have a headache</span>,
+          горло — <span class="en">My throat is sore</span>, нос заложен — <span class="en">stuffy</span>,
+          к вечеру жар — <span class="en">I have a high temperature</span>, сухой кашель —
+          <span class="en">a dry cough</span>. Совет: <span class="en">You should see a doctor and stay in bed</span>.
+          Отпросился: <span class="en">I need to take a day off</span>. На третий день:
+          <span class="en">I'm recovering</span> / <span class="en">I feel better today</span>.
+          Другу: <span class="en">Get well soon! Take care!</span>
+        </p>
+        <div class="ex">
+          <p class="en">— Hi! How do you feel?</p>
+          <p class="en">— I feel terrible. I have a high temperature and a sore throat.</p>
+          <p class="en">— Do you have a cough?</p>
+          <p class="en">— Yes, a dry cough. And my nose is stuffy.</p>
+          <p class="teacher-en">Role-play: doctor/friend gives advice — <i>see a doctor</i>, <i>stay in bed</i>, <i>take a day off</i>, closes with <i>Get well soon!</i></p>
+          <p class="ru muted">Шаблон разговора — учить наизусть. Письменные реплики — в диктанте (диалог C).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mixed">
+      <div class="card prose">
+        <p class="section-tag">health.md · Exercises 1–11, 15</p>
+        <h2>IX. Mixed exercises (writing only)</h2>
+        <p class="ru muted">
+          Из раздатки: §1 пропуски, §4 исправь ошибку, §11 сборка, §15 перевод. Ролевые и устные — в классе, здесь не проверяются.
+        </p>
+        <div class="drill-section">
+          <span class="section-tag">Type · Gap, Fix, Unscramble, Translate</span>
+          <div class="drill-root" data-drill="mixed"></div>
+        </div>
+        <div class="drill-section">
+          <span class="section-tag">Type · Match (§2)</span>
+          <p class="ru muted">Общее сопоставление по всей теме.</p>
+          <div class="match-root" data-match="mixed"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="border">
+      <div class="card prose">
+        <h2>X. Common mistakes (traps)</h2>
+        <p class="ru muted">
+          После упражнений — быстрая сверка. Часто путают stuffy/runny, dry/wet, bite/sting и <i>was bitten</i> (не <i>was bite</i>).
+        </p>
+        <table>
+          <thead><tr><th>Ошибка</th><th>Почему</th><th>Верно</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="en dim">I am headache.</td>
+              <td>Headache — существительное, не прилагательное.</td>
+              <td class="en">I have a headache.</td>
+            </tr>
+            <tr>
+              <td class="en dim">dry cough + a lot of mucus</td>
+              <td>Dry = без слизи. Wet = со слизью.</td>
+              <td class="en">a wet cough</td>
+            </tr>
+            <tr>
+              <td class="en dim">She was bite by …</td>
+              <td>Пассив: was + V3.</td>
+              <td class="en">She was bitten by a mosquito.</td>
+            </tr>
+            <tr>
+              <td class="en dim">bee bite</td>
+              <td>Пчела жалоит.</td>
+              <td class="en">bee sting</td>
+            </tr>
+            <tr>
+              <td class="en dim">runny nose + can't breathe</td>
+              <td>Runny — течёт; stuffy — не дышу.</td>
+              <td class="en">My nose is stuffy.</td>
+            </tr>
+            <tr>
+              <td class="en dim">more worse</td>
+              <td>Сравнение без more для worse.</td>
+              <td class="en">Yesterday I was worse.</td>
+            </tr>
+            <tr>
+              <td class="en dim">take a painkiller on my skin</td>
+              <td>Painkiller пьют/глотают.</td>
+              <td class="en">take a painkiller · put cream on my skin</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">Рядом по смыслу, но не в этой главе: flu как диагноз, pharmacy, prescription — только если отдельный урок.</p>
+      </div>
+    </section>
+
+    <section id="cheat">
+      <div class="card prose">
+        <h2>Cheat sheet</h2>
+        <p class="ru muted">Кратко на один экран; при печати блоки с заданиями можно скрыть.</p>
+        <div class="formula">
+          feel fine · sick · terrible · weak · tired · exhausted · dizzy<br>
+          have a headache · My throat is sore · stuffy / runny nose<br>
+          dry / wet cough · fever · broken · bruise · itchy · bee sting · bitten by<br>
+          PP: I have had a fever since… · haven't recovered yet · Have you taken… yet?<br>
+          Past: I was bitten yesterday. — not PP with yesterday
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    const VOCAB_BLOCKS = {
+      feel: [
+        ["I feel fine / great.", "My body and mood are good. I am okay.", "Тело и настроение в порядке."],
+        ["I feel sick / ill.", "I am not well. My body feels bad.", "Мне плохо."],
+        ["I feel terrible.", "I feel very, very bad.", "Очень плохо."],
+        ["I feel weak / tired / exhausted.", "I have no energy. I need rest. Exhausted = very, very tired.", "Нет сил."],
+        ["I feel dizzy.", "My head feels like it is spinning. I may fall.", "Кружится голова."],
+        ["I feel cold.", "My body feels cold. I may be shaking.", "Мёрзну."],
+        ["I feel hot.", "My body feels very warm. Maybe I have a fever.", "Жарко."],
+        ["I'm better / worse today.", "Today my health is good / bad compared to before.", "Сегодня лучше / хуже."],
+        ["I'm recovering.", "I am getting better. My health is coming back.", "Выздоравливаю."]
+      ],
+      pain: [
+        ["I have a headache / toothache / backache / stomach ache.", "I feel pain in my head / tooth / back / stomach.", "Боль в …"],
+        ["My throat is sore.", "My throat hurts. It feels painful.", "Горло болит."],
+        ["My nose is stuffy / runny.", "Stuffy: I cannot breathe through my nose. Runny: liquid comes out.", "Заложен / течёт."],
+        ["It hurts when I swallow / breathe / move.", "I feel pain when I do this action.", "Больно при действии."]
+      ],
+      symptom: [
+        ["a cough (dry / wet)", "Air comes out fast and loud. Dry = no mucus. Wet = with mucus.", "Кашель"],
+        ["a high temperature / a fever", "Your body is hotter than normal.", "Температура"],
+        ["a broken arm / a bruise / a cut", "Broken: bone damaged. Bruise: dark skin after a hit. Cut: skin is open.", "Повреждения"],
+        ["itch / itchy · My arm itches.", "Itch = verb. Itchy = adjective. You want to scratch.", "Зуд"]
+      ],
+      skin: [
+        ["a pimple", "A small red bump on the skin.", "Прыщ"],
+        ["a rash", "Red spots on the skin. They may be itchy.", "Сыпь"],
+        ["mosquito bite · bee sting", "Dogs/mosquitoes bite. Bees sting.", "Укус / ужаление"],
+        ["I was bitten by a dog.", "Passive: was + past participle.", "Меня укусили"],
+        ["take a day off · Get well soon! · Take care!", "Day off = skip work/school one day. Get well soon = wish to recover.", "Советы и пожелания"],
+        ["Stay in bed and drink plenty of water.", "Basic home-care advice.", "Лежать и пить воду"],
+        ["Take a painkiller.", "Medicine that stops pain.", "Обезболивающее"]
+      ]
+    };
+
+    function mountVocab(id, items) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      shuffle(items).forEach(function (row) {
+        const box = document.createElement("div");
+        box.className = "ex";
+        box.innerHTML =
+          "<p class=\"en\"><b>" + row[0] + "</b></p>" +
+          "<p class=\"def-en\">" + row[1] + "</p>" +
+          "<p class=\"ru\">" + row[2] + "</p>";
+        el.appendChild(box);
+      });
+    }
+
+    mountVocab("feel-cards", VOCAB_BLOCKS.feel);
+    mountVocab("pain-cards", VOCAB_BLOCKS.pain);
+    mountVocab("symptom-cards", VOCAB_BLOCKS.symptom);
+    mountVocab("skin-cards", VOCAB_BLOCKS.skin);
+
+    const DRILL_SECTIONS = {
+      feel: [
+        ["Gap: My body and mood are good. I feel ______.", ["fine", "great"]],
+        ["Gap: I am not well. I feel ______.", ["sick", "ill"]],
+        ["Gap: I feel very, very bad. I feel ______.", "terrible"],
+        ["Gap: I have no energy. I feel ______.", ["exhausted", "weak", "tired"]],
+        ["Gap: My head feels like it is spinning. I feel ______.", "dizzy"],
+        ["Gap: I am getting better. I'm ______.", "recovering"],
+        ["Gap: Today my health is good compared to before. I'm ______ today.", "better"],
+        ["Gap: Today my health is bad compared to before. I'm ______ today.", "worse"]
+      ],
+      pain: [
+        ["Gap: My nose is ______. Liquid comes out of it.", "runny"],
+        ["Gap: I have a ______. I feel pain in my back.", "backache"],
+        ["Gap: It hurts when I ______. (swallow food)", "swallow"],
+        ["Gap: My throat is ______. It hurts.", "sore"],
+        ["Gap: I have a ______. I feel pain in my head.", "headache"],
+        ["Gap: My nose is ______. I cannot breathe through it.", "stuffy"],
+        ["Gap: It hurts when I ______. (take air in)", "breathe"],
+        ["Gap: It hurts when I ______. (move)", "move"]
+      ],
+      symptoms: [
+        ["Gap: My cough has mucus. It is a ______ cough.", "wet"],
+        ["Gap: My cough has no mucus. It is a ______ cough.", "dry"],
+        ["Gap: My body is hotter than normal. I have a high ______.", ["temperature", "fever"]],
+        ["Gap: The bone in my arm is damaged. I have a ______ arm.", "broken"],
+        ["Gap: My skin is dark and hurts after a hit. I have a ______.", "bruise"],
+        ["Gap: My throat hurts. I have a ______ throat.", "sore"]
+      ],
+      pp: [
+        ["PP gap: I have ______ a fever since Monday.", "had"],
+        ["PP gap: She has ______ medicine today. (take)", "taken"],
+        ["PP gap: They haven't ______ the doctor yet. (see)", "seen"],
+        ["PP gap: Have you ever ______ food poisoning? (have)", "had"],
+        ["PP gap: I haven't recovered ______.", "yet"],
+        ["PP gap: He has ______ his arm. (break — result now)", "broken"],
+        ["PP gap: How long have you ______ this cough? (have)", "had"],
+        ["PP EN: Write a question: you / take / painkiller / yet", "Have you taken a painkiller yet?"],
+        ["PP EN: Negative: I / not / recover / yet", "I haven't recovered yet."],
+        ["PP EN: She / have / sore throat / for / two days", "She has had a sore throat for two days."],
+        ["PP RU: Я ещё не ходил к врачу.", "I haven't seen a doctor yet."],
+        ["PP contrast: Yesterday → Past Simple (RU cue)", "I was bitten by a dog yesterday."]
+      ],
+      skin: [
+        ["Gap: Bees don't bite — they ______ you.", "sting"],
+        ["Gap: I can't stop ______.", "scratching"],
+        ["Gap: I need to ______ a day off.", "take"],
+        ["Gap: You should ______ a painkiller.", "take"]
+      ],
+      dictation: [
+        ["Dictation A1", "My nose is stuffy."],
+        ["Dictation A2", "I feel dizzy."],
+        ["Dictation A3", "I have a high temperature."],
+        ["Dictation A4", "I have a sore throat."],
+        ["Dictation A5", "I'm recovering."],
+        ["Dictation B1", "My throat is sore. It hurts when I swallow."],
+        ["Dictation B2", "You should see a doctor and stay in bed."],
+        ["Dictation B3", "Get well soon! Take care!"],
+        ["Dialogue C: How do you feel?", "Hi! How do you feel?"],
+        ["Dialogue C: terrible + fever + throat", "I feel terrible. I have a high temperature and a sore throat."],
+        ["Dialogue C: dry cough + stuffy nose", "Yes, a dry cough. And my nose is stuffy."],
+        ["Dialogue C: closing", "Get well soon!"]
+      ],
+      mixed: [
+        ["Ex.1 gap: I was ______ by a dog yesterday.", "bitten"],
+        ["Ex.1 gap: I feel ______. My head is spinning.", "dizzy"],
+        ["Ex.1 gap: My nose is ______. I can't breathe.", "stuffy"],
+        ["Ex.1 gap: I have a ______ cough. No mucus.", "dry"],
+        ["Ex.1 gap: I have food ______.", "poisoning"],
+        ["Ex.4 fix: She was bite by a mosquito.", "She was bitten by a mosquito."],
+        ["Ex.4 fix: bee bite → correct word in: The bee ______ is itchy.", "sting"],
+        ["Ex.11 unscramble: feel / I / dizzy / .", "I feel dizzy."],
+        ["Ex.11 unscramble: nose / My / is / stuffy / .", "My nose is stuffy."],
+        ["Ex.8 gap: sore ______", "throat"],
+        ["Ex.8 gap: see a ______", "doctor"]
+      ]
+    };
+
+    /** [phrase or word, matching explanation] — from health.md §2 Match tables */
+    const MATCH_SETS = {
+      feel: [
+        ["I feel cold.", "My body feels cold. I may be shaking."],
+        ["I'm recovering.", "I am getting better. My health is coming back."],
+        ["I feel terrible.", "I feel very, very bad."],
+        ["I feel hot.", "My body feels very warm. Maybe I have a fever."],
+        ["I feel fine / great.", "My body and mood are good. I am okay."],
+        ["I feel dizzy.", "My head feels like it is spinning. I may fall."],
+        ["I'm better / worse today.", "Today my health is good / bad compared to before."],
+        ["I feel weak / tired / exhausted.", "I have no energy. I need rest."],
+        ["I feel sick / ill.", "I am not well. My body feels bad."]
+      ],
+      pain: [
+        ["My nose is stuffy.", "I cannot breathe through my nose."],
+        ["It hurts when I breathe.", "I feel pain when I take air in."],
+        ["I have a toothache.", "I feel pain in my tooth."],
+        ["My nose is runny.", "Liquid comes out of my nose."],
+        ["I have a stomach ache.", "I feel pain in my stomach."],
+        ["It hurts when I swallow.", "I feel pain when food goes down my throat."],
+        ["I have a headache.", "I feel pain in my head."],
+        ["My throat is sore.", "My throat hurts."],
+        ["It hurts when I move.", "I feel pain when I move."],
+        ["I have a backache.", "I feel pain in my back."]
+      ],
+      symptoms: [
+        ["a runny nose", "Liquid comes out of your nose."],
+        ["a fever", "Your body is hotter than normal."],
+        ["a cut", "The skin is open."],
+        ["a wet cough", "A cough with mucus."],
+        ["a bruise", "The skin is dark and hurts after a hit."],
+        ["a dry cough", "A cough with no mucus."],
+        ["a broken arm", "The bone is damaged."],
+        ["a sore throat", "Your throat hurts."],
+        ["a cough", "Air comes out of your mouth fast and loud."]
+      ],
+      mixed: [
+        ["a pimple", "A small red bump on the skin."],
+        ["runny nose", "Liquid comes out of your nose."],
+        ["itchy", "You want to scratch your skin."],
+        ["dizzy", "My head feels like it is spinning."],
+        ["a cough", "Air comes out of your mouth fast and loud."],
+        ["a bruise", "The skin is dark and hurts after a hit."],
+        ["stuffy nose", "I cannot breathe through my nose."],
+        ["a fever", "Your body is hotter than normal."],
+        ["a cut", "The skin is open."],
+        ["exhausted", "Very, very tired."]
+      ]
+    };
+
+    const KEY_BASE = "health-vocabulary-v2";
+
+    function normalize(s) {
+      return s.trim().replace(/\u2019/g, "'").replace(/\s+/g, " ");
+    }
+
+    function expand(seed) {
+      const set = new Set();
+      const q = [normalize(seed)];
+      const rules = [
+        [/\bI am\b/g, "I'm"],
+        [/\bI'm\b/g, "I am"],
+        [/\bI have\b/g, "I've"],
+        [/\bI've\b/g, "I have"],
+        [/\bcannot\b/g, "can't"],
+        [/\bcan't\b/g, "cannot"],
+        [/\bdo not\b/g, "don't"],
+        [/\bdon't\b/g, "do not"],
+        [/\bwill not\b/g, "won't"],
+        [/\bwon't\b/g, "will not"]
+      ];
+      while (q.length) {
+        const cur = q.pop();
+        if (set.has(cur)) continue;
+        set.add(cur);
+        rules.forEach(function (r) {
+          const next = cur.replace(r[0], r[1]);
+          if (next !== cur && !set.has(next)) q.push(next);
+        });
+      }
+      return Array.from(set);
+    }
+
+    function rowToItem(row, id) {
+      const ru = row[0];
+      const seeds = [];
+      for (let k = 1; k < row.length; k++) {
+        if (Array.isArray(row[k])) seeds.push.apply(seeds, row[k]);
+        else seeds.push(row[k]);
+      }
+      let expected = [];
+      seeds.forEach(function (s) {
+        if (s.indexOf(" ") === -1 && s.length < 30) {
+          expected.push(normalize(s));
+        } else {
+          expected = expected.concat(expand(s));
+        }
+      });
+      expected = Array.from(new Set(expected.map(normalize)));
+      return { id: id, ru: ru, expected: expected };
+    }
+
+    function buildBank(raw, sectionId) {
+      return raw.map(function (row, i) {
+        return rowToItem(row, sectionId + "-" + (i + 1));
+      });
+    }
+
+    function diffChars(expected, got) {
+      const e = [...expected];
+      const g = [...got];
+      const n = Math.max(e.length, g.length);
+      const out = [];
+      for (let i = 0; i < n; i++) {
+        if (i >= e.length) out.push({ ch: g[i], kind: "extra" });
+        else if (i >= g.length) out.push({ ch: e[i], kind: "miss" });
+        else if (e[i] === g[i]) out.push({ ch: g[i], kind: "ok" });
+        else out.push({ ch: g[i], kind: "bad" });
+      }
+      return out;
+    }
+
+    function bestDiff(expectedList, got) {
+      const g = normalize(got);
+      let best = null;
+      for (let i = 0; i < expectedList.length; i++) {
+        const e = expectedList[i];
+        const parts = diffChars(e, g);
+        const score = parts.filter(function (p) { return p.kind === "ok"; }).length;
+        const perfect = g === e;
+        if (!best || perfect || score > best.score) {
+          best = { exp: e, parts: parts, score: score, perfect: perfect };
+          if (perfect) break;
+        }
+      }
+      return best;
+    }
+
+    function escapeCh(ch) {
+      if (ch === " ") return "·";
+      if (ch === "<") return "&lt;";
+      if (ch === "&") return "&amp;";
+      return ch;
+    }
+
+    function renderDiff(el, parts) {
+      el.innerHTML = parts.map(function (p) {
+        const cls = p.kind === "ok" ? "ok" : p.kind === "miss" ? "miss" : "bad";
+        return "<span class=\"ch " + cls + "\">" + escapeCh(p.ch) + "</span>";
+      }).join("");
+    }
+
+    function loadStore(sectionKey) {
+      try {
+        return JSON.parse(localStorage.getItem(KEY_BASE + "-" + sectionKey) || "{\"done\":{},\"answers\":{}}");
+      } catch (e) {
+        return { done: {}, answers: {} };
+      }
+    }
+    function saveStore(sectionKey, st) {
+      localStorage.setItem(KEY_BASE + "-" + sectionKey, JSON.stringify(st));
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function promptBody(prompt) {
+      if (/^Dictation\b/i.test(prompt) || /^Dialogue C\b/i.test(prompt)) return prompt;
+      var i = prompt.indexOf(":");
+      if (i === -1) return prompt;
+      return prompt.slice(i + 1).replace(/^\s+/, "");
+    }
+
+    function taskTypeLabel(prompt) {
+      if (/^Dictation/i.test(prompt)) return { cls: "dictation", text: "Dictation" };
+      if (/^Gap:/i.test(prompt) || /^Ex\.1 gap/i.test(prompt) || /^PP gap/i.test(prompt)) return { cls: "", text: "Gap" };
+      if (/^PP RU/i.test(prompt) || /^RU:/i.test(prompt)) return { cls: "", text: "RU→EN" };
+      if (/^Ex\.4 fix/i.test(prompt)) return { cls: "fix", text: "Fix" };
+      if (/^Ex\.11/i.test(prompt)) return { cls: "", text: "Unscramble" };
+      if (/^Ex\.15/i.test(prompt)) return { cls: "", text: "Translate" };
+      if (/^Ex\.8/i.test(prompt)) return { cls: "", text: "Dialogue" };
+      if (/^Dialogue/i.test(prompt)) return { cls: "", text: "Dialogue" };
+      if (/^PP EN/i.test(prompt)) return { cls: "", text: "Write" };
+      if (/^PP contrast/i.test(prompt)) return { cls: "", text: "Contrast" };
+      if (/^PP/i.test(prompt)) return { cls: "", text: "Present Perfect" };
+      if (/^Ex\./i.test(prompt)) return { cls: "", text: "Exercise" };
+      return { cls: "", text: "Write" };
+    }
+
+    function buildMatchState(pairs) {
+      const rows = shuffle(pairs.map(function (p, i) {
+        return { id: "r" + i, phrase: p[0], expl: p[1] };
+      }));
+      var texts = pairs.map(function (p) { return p[1]; });
+      var perm = shuffle(texts.slice());
+      var safety = 0;
+      while (perm.every(function (t, i) { return t === rows[i].expl; }) && safety < 20) {
+        perm = shuffle(texts.slice());
+        safety += 1;
+      }
+      rows.forEach(function (row, i) {
+        row.slotExpl = perm[i];
+      });
+      return { rows: rows };
+    }
+
+    function initMatch(root) {
+      const matchKey = root.getAttribute("data-match");
+      const pairs = MATCH_SETS[matchKey];
+      if (!pairs) return;
+      const storeKey = "match-" + matchKey;
+      let state = buildMatchState(pairs);
+      let dragCard = null;
+
+      const dense = pairs.length >= 8 ? " match-lines--dense" : "";
+      root.innerHTML =
+        "<div class=\"sticky-prog\">" +
+        "<div class=\"score\" data-score>match: —</div>" +
+        "<div class=\"bar\"><i data-bar></i></div>" +
+        "<div class=\"toolbar\">" +
+        "<button type=\"button\" class=\"btn\" data-reshuffle>Shuffle rows</button>" +
+        "<button type=\"button\" class=\"btn\" data-reset style=\"background:#334155;color:#e2e8f0\">Reset</button>" +
+        "</div></div>" +
+        "<p class=\"muted\">Drag each explanation onto the <b>same row</b> as its phrase, then <b>Check all</b>.</p>" +
+        "<div class=\"match-sheet\">" +
+        "<div class=\"match-head\"><span>Phrase</span><span>Explanation (drag)</span></div>" +
+        "<div class=\"match-lines" + dense + "\" data-lines></div>" +
+        "<div class=\"match-actions\">" +
+        "<button type=\"button\" class=\"btn\" data-check-all>Check all</button>" +
+        "<span class=\"match-msg\" data-msg></span></div></div>";
+
+      const scoreEl = root.querySelector("[data-score]");
+      const barEl = root.querySelector("[data-bar]");
+      const linesEl = root.querySelector("[data-lines]");
+      const msgEl = root.querySelector("[data-msg]");
+
+      function cardForText(text) {
+        const el = document.createElement("div");
+        el.className = "match-card";
+        el.draggable = true;
+        el.setAttribute("data-expl", text);
+        el.textContent = text;
+        el.addEventListener("dragstart", function (ev) {
+          dragCard = el;
+          el.classList.add("dragging");
+          ev.dataTransfer.effectAllowed = "move";
+          try { ev.dataTransfer.setData("text/plain", text); } catch (e) { /* ignore */ }
+        });
+        el.addEventListener("dragend", function () {
+          el.classList.remove("dragging");
+          dragCard = null;
+          root.querySelectorAll(".match-drop").forEach(function (z) { z.classList.remove("drag-over"); });
+        });
+        return el;
+      }
+
+      function wireDrop(zone) {
+        zone.addEventListener("dragover", function (ev) {
+          ev.preventDefault();
+          zone.classList.add("drag-over");
+        });
+        zone.addEventListener("dragleave", function () {
+          zone.classList.remove("drag-over");
+        });
+        zone.addEventListener("drop", function (ev) {
+          ev.preventDefault();
+          zone.classList.remove("drag-over");
+          if (!dragCard) return;
+          const fromZone = dragCard.parentElement;
+          const hereCard = zone.querySelector(".match-card");
+          if (fromZone === zone) return;
+          if (hereCard) {
+            fromZone.appendChild(hereCard);
+          } else {
+            fromZone.textContent = "";
+          }
+          zone.appendChild(dragCard);
+          root.querySelectorAll(".match-line").forEach(function (ln) {
+            ln.classList.remove("is-ok", "is-bad");
+          });
+          msgEl.textContent = "";
+        });
+      }
+
+      function paintLines() {
+        linesEl.innerHTML = "";
+        state.rows.forEach(function (row, i) {
+          const line = document.createElement("div");
+          line.className = "match-line";
+          line.setAttribute("data-row-id", row.id);
+          line.innerHTML =
+            "<div class=\"match-left\"><span class=\"num\">" + (i + 1) + ".</span><span>" + row.phrase + "</span></div>" +
+            "<div class=\"match-drop\"></div>";
+          const drop = line.querySelector(".match-drop");
+          drop.appendChild(cardForText(row.slotExpl));
+          wireDrop(drop);
+          linesEl.appendChild(line);
+        });
+      }
+
+      function countCorrect() {
+        var ok = 0;
+        state.rows.forEach(function (row) {
+          const line = linesEl.querySelector("[data-row-id=\"" + row.id + "\"]");
+          if (!line) return;
+          const card = line.querySelector(".match-card");
+          if (card && card.getAttribute("data-expl") === row.expl) ok += 1;
+        });
+        return ok;
+      }
+
+      function paintScore(nOk, n) {
+        scoreEl.textContent = "match: " + nOk + " / " + n;
+        barEl.style.width = (100 * nOk / n) + "%";
+      }
+
+      function checkAll() {
+        var n = state.rows.length;
+        var ok = 0;
+        state.rows.forEach(function (row) {
+          const line = linesEl.querySelector("[data-row-id=\"" + row.id + "\"]");
+          const card = line.querySelector(".match-card");
+          const good = card && card.getAttribute("data-expl") === row.expl;
+          line.classList.remove("is-ok", "is-bad");
+          if (good) {
+            line.classList.add("is-ok");
+            ok += 1;
+          } else {
+            line.classList.add("is-bad");
+          }
+        });
+        paintScore(ok, n);
+        if (ok === n) {
+          msgEl.textContent = "All correct.";
+          const st = loadStore(storeKey);
+          st.done = { all: true };
+          saveStore(storeKey, st);
+        } else {
+          msgEl.textContent = ok + " of " + n + " correct. Drag and try again.";
+          const st = loadStore(storeKey);
+          delete st.done.all;
+          saveStore(storeKey, st);
+        }
+      }
+
+      function fullRemount() {
+        state = buildMatchState(pairs);
+        paintLines();
+        paintScore(0, state.rows.length);
+        msgEl.textContent = "";
+      }
+
+      root.querySelector("[data-check-all]").addEventListener("click", checkAll);
+      root.querySelector("[data-reshuffle]").addEventListener("click", function () {
+        localStorage.removeItem(KEY_BASE + "-" + storeKey);
+        fullRemount();
+      });
+      root.querySelector("[data-reset]").addEventListener("click", function () {
+        localStorage.removeItem(KEY_BASE + "-" + storeKey);
+        fullRemount();
+      });
+
+      fullRemount();
+      const st = loadStore(storeKey);
+      if (st.done && st.done.all) paintScore(state.rows.length, state.rows.length);
+    }
+
+    function initDrill(root) {
+      const sectionKey = root.getAttribute("data-drill");
+      const raw = DRILL_SECTIONS[sectionKey];
+      if (!raw) return;
+      const bank = buildBank(raw, sectionKey);
+      let orderLeft = shuffle(bank.map(function (x) { return x.id; }));
+
+      root.innerHTML =
+        "<div class=\"sticky-prog\">" +
+        "<div class=\"score\" data-score>done 0 / " + bank.length + "</div>" +
+        "<div class=\"bar\"><i data-bar></i></div>" +
+        "<div class=\"toolbar\">" +
+        "<label class=\"chk\"><input type=\"checkbox\" data-only checked> only unfinished</label>" +
+        "<button type=\"button\" class=\"btn\" data-shuffle>Shuffle</button>" +
+        "<button type=\"button\" class=\"btn\" data-reset style=\"background:#334155;color:#e2e8f0\">Reset</button>" +
+        "</div></div><div class=\"task-grid\" data-tasks></div>";
+
+      const scoreEl = root.querySelector("[data-score]");
+      const barEl = root.querySelector("[data-bar]");
+      const tasksEl = root.querySelector("[data-tasks]");
+      const onlyLeft = root.querySelector("[data-only]");
+
+      function stats(st) {
+        const n = bank.length;
+        const d = Object.keys(st.done).length;
+        return { n: n, d: d, left: n - d };
+      }
+
+      function paintScore(st) {
+        const s = stats(st);
+        scoreEl.textContent = "done " + s.d + " / " + s.n + " · left " + s.left;
+        barEl.style.width = (100 * s.d / s.n) + "%";
+      }
+
+      function orderedItems(st) {
+        const byId = {};
+        bank.forEach(function (x) { byId[x.id] = x; });
+        const left = [];
+        const done = [];
+        orderLeft.forEach(function (id) {
+          if (st.done[id]) done.push(byId[id]);
+          else left.push(byId[id]);
+        });
+        bank.forEach(function (x) {
+          if (orderLeft.indexOf(x.id) === -1) {
+            if (st.done[x.id]) done.push(x); else left.push(x);
+          }
+        });
+        return onlyLeft.checked ? left : left.concat(done);
+      }
+
+      function mountTasks() {
+        const st = loadStore(sectionKey);
+        paintScore(st);
+        tasksEl.innerHTML = "";
+        const list = orderedItems(st);
+        if (!list.length) {
+          tasksEl.innerHTML = "<p class=\"muted\">All done in this section. Reset to retry.</p>";
+          return;
+        }
+        list.forEach(function (item, i) {
+          const wrap = document.createElement("div");
+          wrap.className = "task " + (st.done[item.id] ? "done" : "todo");
+          const t = taskTypeLabel(item.ru);
+          wrap.innerHTML =
+            "<div class=\"task-line\">" +
+            "<span class=\"task-type " + t.cls + "\">" + t.text + "</span>" +
+            "<span class=\"task-num\">" + (i + 1) + ".</span>" +
+            "<span class=\"task-body\">" + escapeHtml(promptBody(item.ru)) + "</span>" +
+            "<input type=\"text\" spellcheck=\"false\" autocomplete=\"off\">" +
+            "<button type=\"button\" class=\"btn\">Check</button>" +
+            "</div>" +
+            "<div class=\"letters\"></div>" +
+            "<p class=\"fb\"></p>";
+          const input = wrap.querySelector("input");
+          const btn = wrap.querySelector("button");
+          const letters = wrap.querySelector(".letters");
+          const fb = wrap.querySelector(".fb");
+          if (st.answers[item.id]) input.value = st.answers[item.id];
+          let fails = 0;
+
+          function check() {
+            const got = input.value;
+            if (!normalize(got)) return;
+            const best = bestDiff(item.expected, got);
+            renderDiff(letters, best.parts);
+            const store = loadStore(sectionKey);
+            store.answers[item.id] = normalize(got);
+            if (best.perfect) {
+              store.done[item.id] = true;
+              saveStore(sectionKey, store);
+              wrap.className = "task done";
+              fb.textContent = "Match.";
+              paintScore(store);
+              if (onlyLeft.checked) wrap.remove();
+            } else {
+              delete store.done[item.id];
+              saveStore(sectionKey, store);
+              wrap.className = "task todo";
+              fails += 1;
+              fb.textContent = fails < 2
+                ? "No match yet. Answer hidden."
+                : "Answer: " + best.exp;
+              paintScore(store);
+            }
+          }
+
+          btn.addEventListener("click", check);
+          input.addEventListener("keydown", function (ev) {
+            if (ev.key === "Enter") check();
+          });
+          tasksEl.appendChild(wrap);
+        });
+      }
+
+      root.querySelector("[data-shuffle]").addEventListener("click", function () {
+        const st = loadStore(sectionKey);
+        const left = bank.filter(function (x) { return !st.done[x.id]; }).map(function (x) { return x.id; });
+        const done = bank.filter(function (x) { return st.done[x.id]; }).map(function (x) { return x.id; });
+        orderLeft = shuffle(left).concat(done);
+        mountTasks();
+      });
+      onlyLeft.addEventListener("change", mountTasks);
+      root.querySelector("[data-reset]").addEventListener("click", function () {
+        localStorage.removeItem(KEY_BASE + "-" + sectionKey);
+        orderLeft = shuffle(bank.map(function (x) { return x.id; }));
+        mountTasks();
+      });
+      mountTasks();
+    }
+
+    document.querySelectorAll(".drill-root").forEach(initDrill);
+    document.querySelectorAll(".match-root").forEach(initMatch);
+  </script>
+</body>
+</html>

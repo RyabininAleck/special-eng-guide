@@ -1,0 +1,325 @@
+Front;Back
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Доходность инвестиции</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Доход (проценты и дивиденды) делённый на цену инвестиции, обычно годовой.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Облигация с высокой доходностью особенно важна.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Доходность к погашению показывает реальный доход инвестора.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Yield</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Bond yield показывает, сколько принесёт облигация.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Dividend yield помогает сравнивать компании по выплатам.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Yield to maturity рассчитывает доходность до конца срока.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>High yield bonds предлагают большие выплаты.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Доходный спред</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Разница в доходностях между активами помогает оценивать риск.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Сужать доходный спред означает уменьшение неопределённости.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Корпоративный доходный спред растёт при кризисе.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Yield spread</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Yield spread between bonds отражает разницу в надёжности.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Narrow the yield spread говорит о приближении доходностей.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Corporate bond yield spread расширяется, когда рынку страшно.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Дополнительный риск</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Это риск, добавляемый в портфель ради большей доходности.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Добавление риска должно сопровождаться диверсификацией.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Управлять дополнительным риском значит фиксировать волатильность.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Addition risk</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Adding risk to portfolio помогает получить премию за волатильность.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Manage addition risk, чтобы не потерять капитал.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Облигации и акции</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Государственные облигации дают защиту.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Корпоративные облигации повышают доходность.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Акции стимулируют рост портфеля вместе с облигациями.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Bonds and stocks</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Government bonds поддерживают баланс в кризис.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Corporate bonds and stocks обеспечивают диверсификацию.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Combine bonds and stocks for steady returns.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Привлекательный</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Привлекательное предложение сложно отвергнуть.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Привлекательная инвестиция сочетает доход и защиту.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Attractive</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Attractive offer выигрывает внимание инвесторов.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Attractive investment pays consistent dividends.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Спрос</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Высокий спрос поднимает цену.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Рыночный спрос задаёт объемы производства.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Demand</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>High demand signals growth in the sector.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Market demand drives capacity planning.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Подходящий</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Подходящий вариант для начинающих инвесторов.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Подходящие условия ускоряют рост портфеля.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Suitable</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Suitable for beginners, this strategy stays simple.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Suitable conditions help close deals quickly.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Получать</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Получать платежи вовремя важно для кассы.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Получать дивиденды означает стабильный доход.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Receive</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Receive payment at the month start.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Receive dividends keeps cash flow positive.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Отсутствующий</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Файл отсутствует — проверьте систему.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Пока чего-то не хватает, проект не завершён.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Missing</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Something is missing for the final report.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>File is missing from the folder.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Применять</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Применять знания на практике помогает расти.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Подавать заявку на работу нужно вовремя.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Apply</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Apply for a job through the company portal.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Apply knowledge from finance to new projects.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Сложный</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Сложная ситуация требует команды.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Сложный процесс может стать проще через план.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Complicated</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Complicated situation needs focus.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Complicated process can be divided.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Конкуренция</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Жесткая конкуренция сокращает маржу.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Рыночная конкуренция держит цену в балансе.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Competition</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Fierce competition pushes innovation.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Market competition balances supply.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Расширять</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Расширять бизнес постепенно — безопасно.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Расширять словарный запас каждый день.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Expand</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Expand business into new markets.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Expand vocabulary every week.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Условия</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Благоприятные условия мотивируют инвесторов.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Рыночные условия меняются быстро.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Conditions</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Favorable conditions drive deals.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Market conditions define timing.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Интенсивный</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Интенсивная конкуренция требует подготовки.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Интенсивный фокус помогает достигать целей.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Intense</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Intense competition drives better offers.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Intense focus cuts through noise.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Ниже</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Цены ниже среднего после распродажи.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Ниже ожиданий — негативный сигнал.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Below</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Prices below average still attract buyers.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Below expectations, we revise our forecast.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Долг</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Государственный долг растёт из-за дефицита.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Кредитный долг строят медленно.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Debt</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Public debt affects interest rates.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Build your credit debt slowly.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>kind of</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Kind of expensive, но всё ещё разумно.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Kind of tired после совещания.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Kind of busy сейчас.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>kind of</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>This phrase softens statements.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>I kind of agree with you.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Пару лет</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Через пару лет планирую переезд.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Пару лет назад всё началось.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>a couple years</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>In a couple years I plan to travel.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>A couple years ago we started this.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Довольно дорогой</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Довольно дорогая машина подорожала.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Это довольно дорого, но достойно.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Quite expensive</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Quite expensive car still sells well.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>That's quite expensive, but the quality is high.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Немного вперед</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Планировать немного вперед помогает избегать сбоев.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Немного опередить конкурентов можно стратегией.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>A little bit ahead</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Plan a little bit ahead to avoid surprises.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Get a little bit ahead by saving earlier.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Немного экспозиции</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Немного экспозиции к акциям учит рынку.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Немного знаний — это тоже экспозиция.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>A little bit of exposure</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>A little bit of exposure to stocks teaches markets.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Gain exposure through small trades.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Очевидно</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Очевидно неправильно игнорировать правила.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Очевидно верно — нет сомнений.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Obviously</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Obviously wrong to ignore rules.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>That's obviously true to investors.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Часть учебной программы</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Английский как часть программы помогает общению.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Это core part of the curriculum.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Part of the curriculum</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>English is part of the curriculum in many schools.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Core part of the curriculum guides students.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Взять кофе</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Давай возьмем кофе перед встречей.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Взять кофе помогает проснуться.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Grab a coffee</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Let's grab a coffee after the call.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Grab a coffee before meeting to recharge.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Определенная ситуация</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>В определенной ситуации важно слушать.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Нужно handle certain situations carefully.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Certain situation</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>In a certain situation the team reacts fast.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Handle certain situations with care.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Заблуждение</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Распространенное заблуждение искажает мнение.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Нужно clear a misconception быстро.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Misconception</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Common misconception drives confusion.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Clear a misconception before proceeding.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Притворяться кем-то другим</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Не притворяйтесь кем-то другим в интервью.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Будьте собой, stop pretending to be someone else.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Pretending to be someone else</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Stop pretending to be someone else and be honest.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>You are pretending to be someone else when stressed.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Выделить предложение</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Выделите предложение жёлтым.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Use highlight to mark the sentence.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Highlight the sentence</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Highlight the sentence in yellow.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Use highlight to mark the sentence.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Рот</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Открой рот для проверки дыхания.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Word of mouth работает лучше рекламы.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Mouth</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Open your mouth during the exam.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Word of mouth spreads quickly.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Заработать на крахе</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Инвесторы profit from collapse.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Рынок падает — кто-то получает прибыль.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Profit from collapse</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Profit from market collapse is risky.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Investors profit from collapse when shorting.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Цены падают</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Цены резко падают при кризисе.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Когда цены падают, покупатели активизируются.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Prices fall</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Prices fall sharply during recessions.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>When prices fall, demand rises.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Сравнивать с</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Сравните с предыдущим годом.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Сравните цены с конкурентами.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Compare with</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Compare with previous year to spot trends.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Compare prices with competitors before buying.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Чистая стоимость</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Рассчитать чистую стоимость легко.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Стремиться к росту net worth.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Net worth</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Increase net worth by saving.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Calculate net worth every quarter.</div>
+</div>"
+"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Построить кредит</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Построить кредитный рейтинг помогает получить займ.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Найти способы улучшить кредит.</div>
+</div>";"<div style='font-size: 18px; line-height: 1.6;'>
+<div style='font-weight: bold; color: #e8e8e8; margin-bottom: 12px;'>Build your credit</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Build your credit score with on-time payments.</div>
+<div style='font-style: italic; color: #a0a0a0; font-size: 16px;'>Ways to build your credit include budgeting.</div>
+</div>"
