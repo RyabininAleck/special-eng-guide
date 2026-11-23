@@ -14,6 +14,7 @@
       --accent: #38bdf8;
       --radius: 16px;
       --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --page-pad-x: clamp(16px, 3.5vw, 64px);
     }
     * { box-sizing: border-box; }
     body {
@@ -23,11 +24,16 @@
       color: var(--text);
       line-height: 1.65;
     }
-    .wrap { max-width: 820px; margin: 0 auto; padding: 28px 20px 80px; }
+    .wrap {
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(20px, 2.5vw, 36px) var(--page-pad-x) 80px;
+    }
     .nav {
       position: sticky; top: 0; z-index: 20;
       display: flex; flex-wrap: wrap; gap: 6px;
-      padding: 12px 20px; margin: 0 -20px 32px;
+      padding: 12px var(--page-pad-x);
+      margin: 0 calc(-1 * var(--page-pad-x)) 32px;
       background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
@@ -44,7 +50,12 @@
     h1 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; margin: 8px 0 12px; }
     h2 { font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 36px 0 14px; }
     p { margin: 0 0 14px; }
-    .lead, .muted { color: var(--muted); }
+    .lead, .muted { color: var(--muted); max-width: 72ch; }
+    .decks {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+      gap: 0 28px;
+    }
     .note {
       background: rgba(56, 189, 248, 0.08);
       border-left: 3px solid var(--accent);
@@ -69,6 +80,17 @@
       white-space: nowrap;
     }
     a.dl:hover { filter: brightness(1.08); }
+    .plaque {
+      position: sticky; bottom: 0; z-index: 30;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+      padding: 8px var(--page-pad-x);
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      font-size: 13px; color: var(--muted);
+    }
+    .plaque a { color: #7dd3fc; text-decoration: none; font-weight: 700; }
+    .plaque a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -83,15 +105,14 @@
 
     <p class="kicker">anki import</p>
     <h1>Decks</h1>
-    <p class="lead">CSV, semicolon. File → Import. Allow HTML in fields. Type: Basic.</p>
-    <p class="muted">Каждый файл — отдельная колода. Кликни Download.</p>
+    <p class="lead">CSV, semicolon. Anki: File → Import. Allow HTML in fields. Note type: Basic. Each file is a separate deck — click Download.</p>
 
     <h2 id="vocab">Phrases &amp; vocabulary</h2>
-    <div>
+    <div class="decks">
       <div class="deck">
         <div class="meta">
           <h3>Conversation 75</h3>
-          <p>Разговорные фразы, HTML-карточки.</p>
+          <p>Spoken phrases, HTML cards.</p>
         </div>
         <span class="n">~975</span>
         <a class="dl" href="anki/conversation_75_phrases.csv" download="conversation_75_phrases.csv">Download</a>
@@ -99,7 +120,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Phrases (from texts)</h3>
-          <p>Фразовые глаголы / идиомы / конструкции из текстов.</p>
+          <p>Phrasal verbs / idioms / patterns pulled from texts.</p>
         </div>
         <span class="n">~250</span>
         <a class="dl" href="anki/anki_phrases.csv" download="anki_phrases.csv">Download</a>
@@ -107,7 +128,7 @@
       <div class="deck">
         <div class="meta">
           <h3>22 April phrases</h3>
-          <p>Ещё один набор фраз из текста.</p>
+          <p>Another phrase set from a text.</p>
         </div>
         <span class="n">~324</span>
         <a class="dl" href="anki/22_april_phrases.csv" download="22_april_phrases.csv">Download</a>
@@ -115,7 +136,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Idioms EN ↔ RU</h3>
-          <p>Двусторонние идиомы.</p>
+          <p>Bidirectional idioms.</p>
         </div>
         <span class="n">~62</span>
         <a class="dl" href="anki/idioms_en_ru_bidirectional.csv" download="idioms_en_ru_bidirectional.csv">Download</a>
@@ -123,7 +144,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Phrasal verbs</h3>
-          <p>Большой банк фразовых глаголов.</p>
+          <p>Large phrasal-verb bank.</p>
         </div>
         <span class="n">~1235</span>
         <a class="dl" href="anki/phrasal_verbs.csv" download="phrasal_verbs.csv">Download</a>
@@ -131,7 +152,7 @@
       <div class="deck">
         <div class="meta">
           <h3>B1 verbs</h3>
-          <p>Глаголы B1, HTML.</p>
+          <p>B1 verbs, HTML cards.</p>
         </div>
         <span class="n">~1170</span>
         <a class="dl" href="anki/b1_verbs.csv" download="b1_verbs.csv">Download</a>
@@ -139,7 +160,7 @@
       <div class="deck">
         <div class="meta">
           <h3>B1 models</h3>
-          <p>Устойчивые модели: be interested in, be good at…</p>
+          <p>Fixed patterns: be interested in, be good at…</p>
         </div>
         <span class="n">~20</span>
         <a class="dl" href="anki/b1_models.csv" download="b1_models.csv">Download</a>
@@ -147,7 +168,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Mood adjectives</h3>
-          <p>Прилагательные настроения, HTML.</p>
+          <p>Mood adjectives, HTML cards.</p>
         </div>
         <span class="n">~767</span>
         <a class="dl" href="anki/mood_adjectives.csv" download="mood_adjectives.csv">Download</a>
@@ -155,7 +176,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Mood adjectives RU → EN</h3>
-          <p>Тот же набор, короткие поля.</p>
+          <p>Same set, short fields.</p>
         </div>
         <span class="n">~476</span>
         <a class="dl" href="anki/mood_adjectives_ru_en.csv" download="mood_adjectives_ru_en.csv">Download</a>
@@ -163,7 +184,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Physics terms</h3>
-          <p>Термины: matter, force, heat…</p>
+          <p>Terms: matter, force, heat…</p>
         </div>
         <span class="n">~88</span>
         <a class="dl" href="anki/physics_terms.csv" download="physics_terms.csv">Download</a>
@@ -171,7 +192,7 @@
     </div>
 
     <h2 id="connect">Connectors</h2>
-    <div>
+    <div class="decks">
       <div class="deck">
         <div class="meta">
           <h3>Discourse markers</h3>
@@ -183,7 +204,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Practical connectors</h3>
-          <p>Связки для речи и письма.</p>
+          <p>Connectors for speech and writing.</p>
         </div>
         <span class="n">~1040</span>
         <a class="dl" href="anki/practical_connectors.csv" download="practical_connectors.csv">Download</a>
@@ -191,7 +212,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Linked words</h3>
-          <p>Связанные пары / коллокации.</p>
+          <p>Linked pairs / collocations.</p>
         </div>
         <span class="n">~143</span>
         <a class="dl" href="anki/linked_words.csv" download="linked_words.csv">Download</a>
@@ -199,11 +220,11 @@
     </div>
 
     <h2 id="grammar">Grammar forms</h2>
-    <div>
+    <div class="decks">
       <div class="deck">
         <div class="meta">
           <h3>Irregular verbs</h3>
-          <p>be — was/were — been. RU → формы.</p>
+          <p>be — was/were — been. RU → forms.</p>
         </div>
         <span class="n">~98</span>
         <a class="dl" href="anki/irregular_verbs.csv" download="irregular_verbs.csv">Download</a>
@@ -219,11 +240,11 @@
     </div>
 
     <h2 id="basics">Basics</h2>
-    <div>
+    <div class="decks">
       <div class="deck">
         <div class="meta">
           <h3>Pronouns</h3>
-          <p>я → I, его → him.</p>
+          <p>я → I, его → him (RU prompt → EN).</p>
         </div>
         <span class="n">~62</span>
         <a class="dl" href="anki/pronouns.csv" download="pronouns.csv">Download</a>
@@ -231,7 +252,7 @@
       <div class="deck">
         <div class="meta">
           <h3>Pronouns in sentences</h3>
-          <p>Короткие предложения с местоимениями.</p>
+          <p>Short sentences with pronouns.</p>
         </div>
         <span class="n">~47</span>
         <a class="dl" href="anki/pronouns_sentences.csv" download="pronouns_sentences.csv">Download</a>
@@ -247,9 +268,13 @@
     </div>
 
     <p class="note">
-      Anki: File → Import → выбрать CSV → delimiter <code>;</code> → Field 1 Front, Field 2 Back.
-      Если в файле есть строки <code>#separator:semicolon</code> / <code>#html:true</code> — Anki подхватит сам.
+      Anki: File → Import → pick the CSV → delimiter <code>;</code> → Field 1 Front, Field 2 Back.
+      If the file has <code>#separator:semicolon</code> / <code>#html:true</code>, Anki reads that itself.
     </p>
   </div>
+  <aside class="plaque">
+    <a href="make-lesson.html">How to make a lesson</a>
+    <span>Copy the prompt · spec is linked inside</span>
+  </aside>
 </body>
 </html>

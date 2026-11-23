@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to make a lesson — special-eng-guide</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --radius: 16px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --page-pad-x: clamp(16px, 3.5vw, 64px);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(56, 189, 248, 0.12), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap {
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(20px, 2.5vw, 36px) var(--page-pad-x) 80px;
+    }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 12px var(--page-pad-x);
+      margin: 0 calc(-1 * var(--page-pad-x)) 32px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav a {
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      padding: 6px 10px; border-radius: 999px;
+    }
+    .nav a:hover { color: #7dd3fc; }
+    .kicker {
+      color: var(--accent); font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; font-weight: 700;
+    }
+    h1 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; margin: 8px 0 12px; }
+    h2 { font-size: 1.15rem; letter-spacing: -0.02em; margin: 0 0 12px; }
+    p, li { margin: 0 0 12px; }
+    .muted { color: var(--muted); max-width: 72ch; }
+    a { color: #7dd3fc; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 36%), var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 22px 18px;
+      margin: 18px 0;
+    }
+    .prompt-head {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 10px; margin-bottom: 12px;
+    }
+    button.copy {
+      background: var(--accent); color: #082f49; border: 0; border-radius: 999px;
+      padding: 8px 14px; font-weight: 700; cursor: pointer; font: inherit; font-size: 0.88rem;
+    }
+    pre#prompt {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      background: #0b1220;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      color: #e2e8f0;
+      max-height: min(70vh, 640px);
+      overflow: auto;
+    }
+    ol { padding-left: 1.2em; max-width: 72ch; }
+    .plaque {
+      position: sticky; bottom: 0; z-index: 30;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+      padding: 8px var(--page-pad-x);
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      font-size: 13px; color: var(--muted);
+    }
+    .plaque a { color: #7dd3fc; text-decoration: none; font-weight: 700; }
+    .plaque a:hover { text-decoration: underline; }
+    @media print { .plaque, .nav { display: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html">All lessons</a>
+      <a href="teacher.html">Spec overview</a>
+      <a href="specs/HTML_LESSON_SPEC.md">Spec (md)</a>
+      <a href="specs/HTML_LESSON_TEMPLATES.md">Templates (md)</a>
+    </nav>
+
+    <p class="kicker">for teachers</p>
+    <h1>How to make a lesson</h1>
+    <p class="muted">Paste the prompt into Cursor / ChatGPT. Fill the Topic block at the bottom. The spec URLs are filled from this site so the model can open them.</p>
+
+    <div class="card">
+      <h2>Before you paste</h2>
+      <ol>
+        <li>Work in this repo (so the model can read <code>html/</code> and <code>specs/</code>).</li>
+        <li>Copy the prompt. Replace <code>[TOPIC]</code> / <code>[LEVEL]</code> / notes.</li>
+        <li>Canonical files: <a href="html/health.html">health.html</a> (vocab), <a href="html/perfect-have-had.html">perfect-have-had.html</a> (grammar), <a href="html/synonyms.html">synonyms.html</a> (many groups).</li>
+        <li>Full rules: <a href="specs/HTML_LESSON_SPEC.md">HTML_LESSON_SPEC.md</a> · drills: <a href="specs/HTML_LESSON_TEMPLATES.md">HTML_LESSON_TEMPLATES.md</a> · short overview: <a href="teacher.html">teacher.html</a>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <div class="prompt-head">
+        <h2>Prompt</h2>
+        <button type="button" class="copy" id="copy">Copy</button>
+      </div>
+      <pre id="prompt"></pre>
+    </div>
+  </div>
+
+  <aside class="plaque">
+    <a href="make-lesson.html">How to make a lesson</a>
+    <span>You are here · spec linked in the prompt</span>
+  </aside>
+
+  <script>
+    const spec = new URL("specs/HTML_LESSON_SPEC.md", location.href).href;
+    const templates = new URL("specs/HTML_LESSON_TEMPLATES.md", location.href).href;
+    const overview = new URL("teacher.html", location.href).href;
+    const health = new URL("html/health.html", location.href).href;
+    const perfect = new URL("html/perfect-have-had.html", location.href).href;
+    const synonyms = new URL("html/synonyms.html", location.href).href;
+
+    const text = `Build ONE new HTML English lesson for this repository (special-eng-guide).
+
+Read and obey these files (source of truth):
+- Spec: ${spec}
+  (also in-repo path: specs/HTML_LESSON_SPEC.md)
+- Templates: ${templates}
+  (also: specs/HTML_LESSON_TEMPLATES.md)
+- Short overview: ${overview}
+
+Copy a canonical file; do not invent a new visual system, CSS, or check engine:
+- Vocab / mixed drills → html/health.html
+  ${health}
+- Grammar chapter (long narrative + RU→EN bank) → html/perfect-have-had.html
+  ${perfect}
+- Many same-shape groups → html/synonyms.html
+  ${synonyms}
+
+Output:
+- Put the lesson at html/<slug>.html
+- Add a card on index.html
+- Unique KEY_BASE
+- UI English (buttons, nav, section titles, badges, Check / Shuffle / Reset)
+- Narrative theory may stay Russian if the student is a Russian speaker; inputs are always English
+
+Hard rules (also in the spec):
+- One topic only (one tense / one pattern / one word set)
+- Student TYPES in input/textarea — no multiple-choice, radio, A/B/C, click-the-phrase-as-answer
+- Shuffle vocab and drills on load and on Shuffle (Fisher–Yates)
+- Check next to the field; letter-diff; do not spoil the full gold answer until the second failed attempt
+- Sequential flow: theory then practice, top to bottom — not sticky practice beside theory
+- Textbook chapter, not a cheat sheet: origin + meaning first, formula second
+
+--- fill this ---
+Topic: [TOPIC]
+Level: [A2 / B1 / B2]
+Canonical file to copy: [health | perfect-have-had | synonyms]
+Theory language: [Russian | English]
+Source notes / handout: [paste or path like lessons/health.md]
+`;
+
+    const pre = document.getElementById("prompt");
+    pre.textContent = text;
+
+    document.getElementById("copy").addEventListener("click", async function () {
+      const btn = this;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copied";
+      } catch (e) {
+        const r = document.createRange();
+        r.selectNodeContents(pre);
+        const sel = getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+        btn.textContent = "Select and copy";
+      }
+      setTimeout(function () { btn.textContent = "Copy"; }, 1600);
+    });
+  </script>
+</body>
+</html>

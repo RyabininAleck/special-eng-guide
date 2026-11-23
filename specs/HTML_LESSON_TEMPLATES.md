@@ -1,27 +1,27 @@
-# Шаблон HTML-урока — практика
+# HTML lesson template — practice
 
-Источник правды по стилю и запретам: `HTML_LESSON_SPEC.md`.
+Source of truth for style and bans: `HTML_LESSON_SPEC.md`.
 
-**Эталоны для копирования:**
+**Files to copy:**
 
-| Задача | Файл |
+| Job | File |
 |--------|------|
-| Одна грамматическая глава, один большой банк RU→EN | `html/perfect-have-had.html` |
-| Лексика по блокам md: карточки + Gap + Match под каждый раздел | `html/health.html` |
-| Много групп однотипной лексики (синонимы, словообразование) | `html/synonyms.html` (20× карточки + Gap + Match) |
+| One grammar chapter, large RU→EN bank | `html/perfect-have-had.html` |
+| Vocab by md blocks: cards + Gap + Match per section | `html/health.html` |
+| Many same-shape vocab groups (synonyms, word-building) | `html/synonyms.html` (20× cards + Gap + Match) |
 
-Новый урок с несколькими типами заданий: **скопировать `html/health.html`**, выкинуть лишние секции, заменить массивы данных, оставить `<script>` целиком (или вырезать неиспользуемые ключи в `DRILL_SECTIONS` / `MATCH_SETS`).
+New lesson with several drill types: **copy `html/health.html`**, drop unused sections, replace data arrays, keep the `<script>` (or delete unused keys in `DRILL_SECTIONS` / `MATCH_SETS`).
 
 ---
 
-## Каркас секции (теория → практика сверху вниз)
+## Section skeleton (theory → practice, top to bottom)
 
 ```html
 <section id="feel">
   <div class="card prose">
     <p class="section-tag">health.md · Feelings</p>
     <h2>III. Feelings (general state)</h2>
-  <p class="ru">…объяснение по-русски…</p>
+  <p class="ru">…Russian explanation…</p>
     <div id="feel-cards" class="vocab-grid"></div>
 
     <div class="lesson-practice drill-duo">
@@ -38,21 +38,21 @@
 </section>
 ```
 
-Инициализация внизу скрипта:
+Init at the bottom of the script:
 
 ```javascript
-const KEY_BASE = "my-lesson-v1"; // уникально на урок
+const KEY_BASE = "my-lesson-v1"; // unique per lesson
 document.querySelectorAll(".drill-root").forEach(initDrill);
 document.querySelectorAll(".match-root").forEach(initMatch);
 ```
 
-`data-drill` / `data-match` **должны совпадать** с ключами в `DRILL_SECTIONS` и `MATCH_SETS`.
+`data-drill` / `data-match` **must match** keys in `DRILL_SECTIONS` and `MATCH_SETS`.
 
 ---
 
-## CSS: обязательные дополнения к базе из SPEC
+## CSS: required extras on top of the SPEC base
 
-Плотные строки, без рамки на каждое задание; кнопка **Check** с классом `btn`.
+Dense rows, no border per item; **Check** button with class `btn`.
 
 ```css
 .task {
@@ -111,34 +111,34 @@ document.querySelectorAll(".match-root").forEach(initMatch);
 }
 
 .task-grid { display: flex; flex-direction: column; gap: 0; }
-.sticky-prog { position: sticky; top: 48px; … } /* см. html/health.html */
+.sticky-prog { position: sticky; top: 48px; … } /* see html/health.html */
 ```
 
-Match — см. блок `.match-line`, `.match-card`, `.match-drop` в `html/health.html` (drag-and-drop, одна кнопка **Check all**).
+Match — see `.match-line`, `.match-card`, `.match-drop` in `html/health.html` (drag-and-drop, one **Check all** button).
 
-**Не использовать:** двухколоночную «теория | sticky-практика», `task-grid` в 2–3 колонки.
+**Do not use:** two-column “theory | sticky practice”, or a 2–3 column `task-grid`.
 
 ---
 
-## Типы письменных заданий (`initDrill`)
+## Written drill types (`initDrill`)
 
-Одна строка банка = `[ prompt, expected ]` или `[ prompt, ["alt1", "alt2"] ]`.
+One bank row = `[ prompt, expected ]` or `[ prompt, ["alt1", "alt2"] ]`.
 
-Префикс в `prompt` задаёт бейдж через `taskTypeLabel()`; в UI показывается только тело после первого `: ` (см. `promptBody()`), кроме `Dictation …` и `Dialogue C …`.
+The prefix in `prompt` sets the badge via `taskTypeLabel()`; the UI shows only the body after the first `: ` (see `promptBody()`), except `Dictation …` and `Dialogue C …`.
 
-| Тип | Префикс prompt (EN) | Бейдж | expected |
+| Type | Prompt prefix (EN) | Badge | expected |
 |-----|---------------------|-------|----------|
-| **Gap** | `Gap: My nose is ______.` | Gap | одно слово или `["stuffy", "blocked"]` |
-| **RU→EN** | `RU: У меня болит голова.` или `PP RU: …` | RU→EN | полное предложение EN |
-| **Dictation** | `Dictation A1` (без двоеточия с текстом) | Dictation | строка целиком |
-| **Dialogue line** | `Dialogue C: How do you feel?` | Dialogue | реплика EN |
-| **Fix** | `Ex.4 fix: She was bite by …` | Fix | исправленное предложение |
-| **Unscramble** | `Ex.11 unscramble: word / word / .` | Unscramble | одно предложение |
-| **PP gap** | `PP gap: I have ______ a fever since …` | Gap | форма (V3) |
-| **PP write** | `PP EN: Negative: I / not / …` | Write | собранная строка |
-| **Mixed ex gaps** | `Ex.1 gap: …` | Gap | как Gap |
+| **Gap** | `Gap: My nose is ______.` | Gap | one word or `["stuffy", "blocked"]` |
+| **RU→EN** | `RU: У меня болит голова.` or `PP RU: …` | RU→EN | full EN sentence |
+| **Dictation** | `Dictation A1` (no colon + text) | Dictation | whole line |
+| **Dialogue line** | `Dialogue C: How do you feel?` | Dialogue | EN line |
+| **Fix** | `Ex.4 fix: She was bite by …` | Fix | corrected sentence |
+| **Unscramble** | `Ex.11 unscramble: word / word / .` | Unscramble | one sentence |
+| **PP gap** | `PP gap: I have ______ a fever since …` | Gap | form (V3) |
+| **PP write** | `PP EN: Negative: I / not / …` | Write | assembled line |
+| **Mixed ex gaps** | `Ex.1 gap: …` | Gap | same as Gap |
 
-Пример секции в данных:
+Sample data section:
 
 ```javascript
 const DRILL_SECTIONS = {
@@ -161,9 +161,9 @@ const DRILL_SECTIONS = {
 };
 ```
 
-Короткие ответы (одно слово) в `rowToItem` не разворачиваются через `expand()`; длинные фразы — допускают варианты `I'm` / `I am` и т.п. (см. `html/health.html`).
+Short one-word answers in `rowToItem` are not expanded via `expand()`; long phrases allow `I'm` / `I am` etc. (see `html/health.html`).
 
-Разметка одного задания (генерируется в `mountTasks`):
+Markup of one item (generated in `mountTasks`):
 
 ```html
 <div class="task todo">
@@ -187,7 +187,7 @@ Toolbar (EN): `done 0 / N` · `only unfinished` · `Shuffle` · `Reset`
 
 ## Match (`initMatch`)
 
-Пары: `[ phraseEn, explanationEn ]`. Фраза слева (фикс), определения справа — DnD между строками.
+Pairs: `[ phraseEn, explanationEn ]`. Phrase on the left (fixed); definitions on the right — drag between rows.
 
 ```javascript
 const MATCH_SETS = {
@@ -202,15 +202,15 @@ const MATCH_SETS = {
 <div class="match-root" data-match="feel"></div>
 ```
 
-При **Check all**: строка зелёная, если `data-expl` карточки === эталонное объяснение для этой фразы. Прогресс: `localStorage` ключ `KEY_BASE + "-match-" + matchKey`.
+On **Check all**: the row is green if the card’s `data-expl` === the gold explanation for that phrase. Progress: `localStorage` key `KEY_BASE + "-match-" + matchKey`.
 
-Добавить новый Match: ключ в `MATCH_SETS` + блок в HTML с тем же `data-match`.
+Add a new Match: key in `MATCH_SETS` + HTML block with the same `data-match`.
 
 ---
 
-## Лексика на карточках (`mountVocab`)
+## Vocab cards (`mountVocab`)
 
-Тройка: `[ phraseEn, definitionEn, glossRu ]`
+Triple: `[ phraseEn, definitionEn, glossRu ]`
 
 ```javascript
 const VOCAB_BLOCKS = {
@@ -228,29 +228,29 @@ const VOCAB_BLOCKS = {
 mountVocab("feel-cards", VOCAB_BLOCKS.feel);
 ```
 
-Карточки **shuffle** при каждой загрузке.
+Cards **shuffle** on every load.
 
 ---
 
-## Расширить тип задания
+## Add a drill type
 
-1. Договориться о **префиксе** prompt (английский, короткий).
-2. Добавить ветку в `taskTypeLabel(prompt)` → `{ cls, text }` для бейджа.
-3. При необходимости — правило в `promptBody()` (когда не резать текст после `:`).
-4. Заполнить `DRILL_SECTIONS.имя_секции`.
+1. Agree a **prompt prefix** (English, short).
+2. Add a branch in `taskTypeLabel(prompt)` → `{ cls, text }` for the badge.
+3. If needed — a rule in `promptBody()` (when not to split after `:`).
+4. Fill `DRILL_SECTIONS.section_name`.
 
-Класс `task-type.fix` / `.dictation` уже стилизованы; для нового типа можно добавить модификатор в CSS.
+Classes `task-type.fix` / `.dictation` are already styled; a new type can add a CSS modifier.
 
 ---
 
-## Порядок работы над новым уроком
+## Workflow for a new lesson
 
-1. Прочитать md/handout — выписать секции как в `lessons/health.md`.
-2. Скопировать `html/health.html` → `html/my-topic.html`.
-3. Заменить `KEY_BASE`, `<title>`, nav, теорию, `VOCAB_BLOCKS`, `DRILL_SECTIONS`, `MATCH_SETS`.
-4. Удалить лишние `<section>` и пустые ключи в объектах.
-5. Проверить: EN в UI, RU в теории, Check с `class="btn"`, поток сверху вниз.
-6. Открыть файл в браузере, пройти один блок Gap + Match.
-7. Добавить карточку на `index.html`.
+1. Read the md/handout — list sections as in `lessons/health.md`.
+2. Copy `html/health.html` → `html/my-topic.html`.
+3. Replace `KEY_BASE`, `<title>`, nav, theory, `VOCAB_BLOCKS`, `DRILL_SECTIONS`, `MATCH_SETS`.
+4. Delete leftover `<section>`s and empty object keys.
+5. Check: EN in UI, RU in theory if needed, Check with `class="btn"`, flow top to bottom.
+6. Open the file in a browser, run one Gap + Match block.
+7. Add a card on `index.html`.
 
-Полная реализация `normalize`, `bestDiff`, `initDrill`, `initMatch` — **не дублировать здесь**; держать одну копию в эталонном HTML и синхронизировать при доработках только эталон + этот документ.
+Full `normalize`, `bestDiff`, `initDrill`, `initMatch` — **do not duplicate here**; keep one copy in the canonical HTML and sync this doc only when the canonical file changes.

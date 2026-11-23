@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Глава. Present Perfect — have/has + V3</title>
+  <title>Present Perfect — have/has + V3</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -18,6 +18,9 @@
       --warn: #fbbf24;
       --radius: 16px;
       --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --page-max: 100%;
+      --page-pad-x: clamp(16px, 3.5vw, 64px);
+      --readable: 72ch;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -28,11 +31,17 @@
       color: var(--text);
       line-height: 1.7;
     }
-    .wrap { max-width: 820px; margin: 0 auto; padding: 28px 20px 80px; }
+    .wrap {
+      width: 100%;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: clamp(20px, 2.5vw, 36px) var(--page-pad-x) 80px;
+    }
     .nav {
       position: sticky; top: 0; z-index: 20;
       display: flex; flex-wrap: wrap; gap: 6px;
-      padding: 12px 20px; margin: 0 -20px 32px;
+      padding: 12px var(--page-pad-x);
+      margin: 0 calc(-1 * var(--page-pad-x)) 32px;
       background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
@@ -46,6 +55,7 @@
       color: var(--accent); font-size: 12px; letter-spacing: 0.16em;
       text-transform: uppercase; font-weight: 700;
     }
+    .chapter-num, .kicker, h1, .lead { max-width: var(--readable); }
     h1 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.2; margin: 8px 0 12px; }
     h2 { font-size: 1.28rem; letter-spacing: -0.02em; margin: 0 0 12px; }
     h3 { font-size: 1.02rem; margin: 22px 0 8px; }
@@ -123,8 +133,19 @@
       padding: 10px 14px; margin-bottom: 14px;
     }
     label.chk { color: var(--muted); font-size: 0.9rem; display: flex; gap: 8px; align-items: center; }
+    .plaque {
+      position: sticky; bottom: 0; z-index: 30;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+      padding: 8px var(--page-pad-x);
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      font-size: 13px; color: var(--muted);
+    }
+    .plaque a { color: #7dd3fc; text-decoration: none; font-weight: 700; }
+    .plaque a:hover { text-decoration: underline; }
     @media print {
-      .nav, #drill, .toolbar { display: none !important; }
+      .nav, #drill, .toolbar, .plaque { display: none !important; }
       body { background: #fff; color: #111; }
       .card, .ex, .formula { box-shadow: none; background: #fff; color: #111; }
     }
@@ -134,19 +155,19 @@
   <div class="wrap">
     <nav class="nav">
       <a href="../index.html">All lessons</a>
-      <a href="#origin">Происхождение</a>
-      <a href="#meaning">Что это значит</a>
-      <a href="#form">Как собирается</a>
-      <a href="#verbs">Глаголы</a>
-      <a href="#one">Одно предложение</a>
+      <a href="#origin">Origin</a>
+      <a href="#meaning">Meaning</a>
+      <a href="#form">Form</a>
+      <a href="#verbs">Verbs</a>
+      <a href="#one">One sentence</a>
       <a href="#havehad">have had</a>
-      <a href="#border">Граница с past</a>
-      <a href="#drill">Письмо</a>
-      <a href="#cheat">Шпаргалка</a>
+      <a href="#border">Border with past</a>
+      <a href="#drill">Writing</a>
+      <a href="#cheat">Cheat sheet</a>
     </nav>
 
-    <p class="chapter-num">ENGLISH GRAMMAR · ГЛАВА О НАСТОЯЩЕМ СОВЕРШЕННОМ</p>
-    <p class="kicker">единственная тема этой главы — Present Perfect</p>
+    <p class="chapter-num">ENGLISH GRAMMAR · PRESENT PERFECT</p>
+    <p class="kicker">the only topic of this chapter — Present Perfect</p>
     <h1>Present Perfect:<br>иметь результат при себе</h1>
     <p class="lead">
       Это не «ещё одно прошедшее». Это способ сказать, что прошлое действие оставило след,
@@ -490,12 +511,12 @@
           Проверка букв — кнопка рядом. Эталон после второй ошибки.
         </p>
         <div class="sticky-prog">
-          <div class="score" id="score">закрыто 0</div>
+          <div class="score" id="score">done 0</div>
           <div class="bar"><i id="bar"></i></div>
           <div class="toolbar">
-            <label class="chk"><input type="checkbox" id="onlyLeft" checked> только непереведённые</label>
-            <button type="button" class="btn" id="reshuffle">Перемешать оставшиеся</button>
-            <button type="button" class="btn" id="resetDone" style="background:#334155;color:#e2e8f0">Сбросить прогресс</button>
+            <label class="chk"><input type="checkbox" id="onlyLeft" checked> only unfinished</label>
+            <button type="button" class="btn" id="reshuffle">Shuffle remaining</button>
+            <button type="button" class="btn" id="resetDone" style="background:#334155;color:#e2e8f0">Reset progress</button>
           </div>
         </div>
         <div id="tasks"></div>
@@ -794,7 +815,7 @@
 
     function paintScore(st) {
       const s = stats(st);
-      scoreEl.textContent = "закрыто " + s.d + " из " + s.n + " · осталось " + s.left;
+      scoreEl.textContent = "done " + s.d + " / " + s.n + " · left " + s.left;
       barEl.style.width = (100 * s.d / s.n) + "%";
     }
 
@@ -821,7 +842,7 @@
       tasksEl.innerHTML = "";
       const list = orderedItems(st);
       if (!list.length) {
-        tasksEl.innerHTML = "<p class=\"muted\">Все 100 закрыты. Сброс — если хочешь пройти снова.</p>";
+        tasksEl.innerHTML = "<p class=\"muted\">All 100 done. Reset if you want to run them again.</p>";
         return;
       }
       list.forEach(function (item, i) {
@@ -832,7 +853,7 @@
           "<p class=\"prompt\"><b>" + (i + 1) + ".</b> " + item.ru + "</p>" +
           "<div class=\"row\">" +
           "<input type=\"text\" spellcheck=\"false\" autocomplete=\"off\">" +
-          "<button type=\"button\">Проверить</button>" +
+          "<button type=\"button\">Check</button>" +
           "</div>" +
           "<div class=\"letters\"></div>" +
           "<p class=\"fb\"></p>";
@@ -854,7 +875,7 @@
             store.done[item.id] = true;
             saveStore(store);
             wrap.className = "task done";
-            fb.textContent = "Совпадение.";
+            fb.textContent = "Match.";
             paintScore(store);
             if (onlyLeft.checked) wrap.remove();
           } else {
@@ -863,8 +884,8 @@
             wrap.className = "task todo";
             fails += 1;
             fb.textContent = fails < 2
-              ? "Не совпало посимвольно. Эталон скрыт."
-              : "Эталон: " + best.exp;
+              ? "No match yet. Answer hidden."
+              : "Answer: " + best.exp;
             paintScore(store);
           }
         }
@@ -892,5 +913,9 @@
     });
     mount();
   </script>
+  <aside class="plaque">
+    <a href="../make-lesson.html">How to make a lesson</a>
+    <span>Copy the prompt · spec is linked inside</span>
+  </aside>
 </body>
 </html>

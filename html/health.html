@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Глава. Health and Illness — лексика</title>
+  <title>Health and Illness — vocabulary</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -19,8 +19,8 @@
       --warn: #fbbf24;
       --radius: 16px;
       --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-      --page-max: min(1440px, 100vw);
-      --page-pad-x: clamp(16px, 3.5vw, 56px);
+      --page-max: 100%;
+      --page-pad-x: clamp(16px, 3.5vw, 64px);
       --readable: 68ch;
     }
     * { box-sizing: border-box; }
@@ -181,6 +181,15 @@
     .drill-duo > .drill-section + .drill-section {
       margin-top: 8px;
     }
+    @media (min-width: 1100px) {
+      .drill-duo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 28px;
+        align-items: start;
+      }
+      .drill-duo > .drill-section + .drill-section { margin-top: 0; }
+    }
     .card.prose > .teacher-en { max-width: var(--readable); }
     @media (min-width: 1180px) {
       .card.prose > .teacher-en { max-width: none; }
@@ -295,8 +304,19 @@
     @media (max-width: 640px) {
       .match-head, .match-line { grid-template-columns: 1fr; gap: 8px; }
     }
+    .plaque {
+      position: sticky; bottom: 0; z-index: 30;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+      padding: 8px var(--page-pad-x);
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      font-size: 13px; color: var(--muted);
+    }
+    .plaque a { color: #7dd3fc; text-decoration: none; font-weight: 700; }
+    .plaque a:hover { text-decoration: underline; }
     @media print {
-      .nav, .drill-root, .match-root, .toolbar { display: none !important; }
+      .nav, .drill-root, .match-root, .toolbar, .plaque { display: none !important; }
       body { background: #fff; color: #111; }
       .card, .ex, .formula { box-shadow: none; background: #fff; color: #111; }
     }
@@ -323,7 +343,7 @@
 
     <div class="lesson-intro">
     <p class="chapter-num">ENGLISH VOCABULARY · HEALTH &amp; ILLNESS</p>
-    <p class="kicker">лексика здоровья (A2) + Present Perfect в теме болезни</p>
+    <p class="kicker">A2 health vocabulary + Present Perfect in illness contexts</p>
     <h1>Health and Illness:<br>как в английском говорят о теле</h1>
     <p class="lead">
       Русский: «у меня болит голова». Английский чаще <span class="en">I have a headache</span>
@@ -1346,5 +1366,9 @@
     document.querySelectorAll(".drill-root").forEach(initDrill);
     document.querySelectorAll(".match-root").forEach(initMatch);
   </script>
+  <aside class="plaque">
+    <a href="../make-lesson.html">How to make a lesson</a>
+    <span>Copy the prompt · spec is linked inside</span>
+  </aside>
 </body>
 </html>

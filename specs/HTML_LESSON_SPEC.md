@@ -1,19 +1,19 @@
-# Инструкция: HTML-страницы для учёбы английского
+# Spec: HTML pages for English study
 
-Один файл = один урок. HTML + CSS + JS в одном документе. Без CDN, без библиотек, открывается двойным кликом.
+One file = one lesson. HTML + CSS + JS in one document. No CDN, no libraries. Opens with a double-click.
 
-**Шаблон и куски по типам упражнений:** `HTML_LESSON_TEMPLATES.md` (копируй `html/health.html` или `html/perfect-have-had.html`, форматы данных Gap / Match / Dictation / Fix / Unscramble / vocab).
+**Templates and drill snippets:** `HTML_LESSON_TEMPLATES.md` (copy `html/health.html` or `html/perfect-have-had.html`; Gap / Match / Dictation / Fix / Unscramble / vocab data formats).
 
-Каталог уроков: `index.html`. Как собирать урок: `teacher.html`.
+Lesson catalog: `index.html`. How to build a lesson: `teacher.html`.
 
-## Жёсткие запреты
+## Hard bans
 
-- Не мешать темы. Учим **одну** штуку (одно время, один паттерн, один набор слов). Соседние формы — только серым контрастом с пометкой «не учим».
-- **Никаких тестов с вариантами.** Ни radio, ни «выбери A/B/C», ни клик по готовой фразе как ответ.
-- Упражнение = ученик **сам пишет** в `<input>` / `<textarea>`.
-- Слова в словарных блоках и упражнениях **всегда перемешивать** при каждой загрузке и по кнопке «ещё раз» (Fisher–Yates). Порядок в исходном массиве не равен порядку на экране.
+- Do not mix topics. Teach **one** thing (one tense, one pattern, one word set). Neighbouring forms: grey contrast, labelled “not this chapter”.
+- **No multiple-choice.** No radio, no “pick A/B/C”, no clicking a ready-made phrase as the answer.
+- A drill = the student **types** in `<input>` / `<textarea>`.
+- Vocab blocks and drills **always shuffle** on load and on Shuffle (Fisher–Yates). Source-array order is never screen order.
 
-## Стиль (премиум-курс, не вики)
+## Look (premium course, not a wiki)
 
 ```css
 :root {
@@ -39,74 +39,74 @@ body {
 }
 ```
 
-- Sticky-навигация якорями по разделам.
-- Карточки: `border-radius: 16px`, тонкая граница `--line`, тень `--shadow`.
-- Формулы: моноширинный блок на `#0b1220`.
-- Объяснения по-русски, примеры EN крупно, перевод серым.
-- Примеры из жизни ученика: код, PR, Китай, Куйньон, учёба — не детский English.
+- Sticky nav with section anchors.
+- Cards: `border-radius: 16px`, thin `--line` border, `--shadow`.
+- Formulas: monospace block on `#0b1220`.
+- Narrative theory may be Russian; EN examples large; glosses grey (`.ru`).
+- Examples from the student’s life: code, PRs, China, Quy Nhon, study — not children’s English.
 
-## Язык интерфейса (обязательно)
+## UI language (required)
 
-- **Английский:** кнопки, навигация, **названия разделов** (`III. Symptoms`, `health.md · Pain`), `Type · Gap` / `Type · Match`, бейджи, счётчики, чекбоксы, Match, feedback.
-- **Запрещено** в UI: русские кнопки и дубли EN/RU на одном элементе.
-- **Русский:** повествовательная теория, переводы в `.ru`, пояснения «почему так» там, где без русского тяжело. Поля ввода — ученик пишет по-английски.
+- **English:** buttons, nav, **section titles** (`III. Symptoms`, `health.md · Pain`), `Type · Gap` / `Type · Match`, badges, counters, checkboxes, Match, feedback.
+- **Forbidden** in UI: Russian buttons, or EN/RU duplicated on one control.
+- **Russian:** narrative theory, `.ru` glosses, “why” notes when English would block the student. Inputs: the student writes English.
 
-## Плотность и поток
+## Density and flow
 
-- Урок читается **последовательно**: нет sticky-колонки «практика сбоку от теории».
-- Список gap/RU→EN: одна строка на задание (бейдж + промпт + поле + Check), перенос только на узком экране; без отдельной «карточки» с border на каждый item.
+- The lesson is **sequential**: no sticky “practice beside theory” column.
+- Gap / RU→EN list: one row per item (badge + prompt + field + Check); wrap only on a narrow screen; no bordered mini-card per item.
 
-## Жанр: глава учебника, не шпаргалка
+## Genre: textbook chapter, not a cheat sheet
 
-Эталон: `html/perfect-have-had.html` (Present Perfect). Новые уроки писать **не короче и не суше** этой главы.
+Canonical: `html/perfect-have-had.html` (Present Perfect). New lessons must not be shorter or drier than that chapter.
 
-Это повествовательная статья, как в советском вузовском учебнике: сначала предыстория и смысл, потом форма. Не список фактов и не «карточки для TikTok».
+Narrative article: origin and meaning first, then form. Not a fact list and not TikTok cards.
 
-Обязательно в теоретической части:
+Theory must include:
 
-- **Откуда форма взялась** — исторический или логический генезис (для Perfect: *I have the letter written* → *I have written the letter*). Не начинать с таблицы.
-- **Что говорящий держит в голове** — зачем английскому это различение, чего не хватает русскому виду/слову.
-- **Почему вспомогательный именно такой** — have не случайный ярлык.
-- **Одно сквозное предложение** на всю главу (обед, PR, ноут) — через него показывают, что форма *значит*, а не как она спрягается.
-- Соседей (Simple, Continuous, другие времена) — только серым, с пометкой «не учим», и только чтобы услышать границу.
-- Абзацы, не буллеты. Тон серьёзный, плотный, без мотивационных вставок.
+- **Where the form came from** — historical or logical genesis (for Perfect: *I have the letter written* → *I have written the letter*). Do not start with a table.
+- **What the speaker holds in mind** — why English makes this distinction; what Russian aspect/word does not encode.
+- **Why that auxiliary** — *have* is not a random label.
+- **One through-line sentence** for the whole chapter (lunch, a PR, a laptop) — to show what the form *means*, not how it conjugates.
+- Neighbours (Simple, Continuous, other tenses) — grey only, labelled “not this chapter”, only to hear the border.
+- Paragraphs, not bullets. Serious, dense tone. No motivational filler.
 
-Запрещено вместо главы: «3 примера + формула + квиз». Если теория занимает меньше roughly половины экрана до практики — мало, дописать происхождение и смысл.
+Forbidden as a substitute: “3 examples + formula + quiz”. If theory is less than roughly half the screen before practice — add origin and meaning.
 
-## Структура урока
+## Lesson structure
 
-1. **Kicker + заголовок главы** — что учим одной строкой.
-2. **Происхождение / предыстория** — как форма сложилась и почему она такая.
-3. **Смысл** — камера говорящего, живые примеры, не таблица.
-4. **Формула** — следствие из истории, не наоборот.
-5. **Одно предложение** — одна лексическая ситуация; если слова — дефиниция + живой пример на карточку.
-6. **Граница / ловушки** — что убивает эту форму (для Perfect: закрытая дата).
-7. **Письмо** — банк под секции md (Gap, Match, Dictation, …) — см. `HTML_LESSON_TEMPLATES.md`.
-8. **Cheat sheet** внизу, печать без навигации и упражнений.
+1. **Kicker + chapter title** — what we teach, one line.
+2. **Origin** — how the form formed and why it looks like this.
+3. **Meaning** — speaker’s camera, live examples, not a table.
+4. **Formula** — follows from the history, not the other way around.
+5. **One sentence** — one lexical situation; for vocab: definition + live example on a card.
+6. **Border / traps** — what kills this form (for Perfect: a closed date).
+7. **Writing** — bank under md sections (Gap, Match, Dictation, …) — see `HTML_LESSON_TEMPLATES.md`.
+8. **Cheat sheet** at the bottom; print without nav and drills.
 
-Практика: несделанные яркие; сделанные — тусклые (opacity ~0.32). Счётчик `done N / M`. Прогресс в `localStorage` (`KEY_BASE` + id секции). Чекбокс `only unfinished`.
+Practice: unfinished items bright; done items faded (opacity ~0.32). Counter `done N / M`. Progress in `localStorage` (`KEY_BASE` + section id). Checkbox `only unfinished`.
 
-## Упражнения: только письмо + проверка букв
+## Drills: typing + letter check only
 
-Каждое задание:
+Each item:
 
 ```
 prompt + badge (Gap / RU→EN / …)
 [ input ] [ Check ]  /* class="btn" */
-ряд букв: зелёный = совпало, красный = не та буква, серый пунктир = не дописал
+letter row: green = match, red = wrong letter, grey dash = missing
 ```
 
-Правила проверки:
+Check rules:
 
-- Эталон — каноническая английская строка (`expected`). Можно массив `expected[]`, засчитывается любой.
-- Сравнивать **посимвольно** после `trim()`. Регистр **учитывается** (English). Схлопывать только повторные пробелы до одного.
-- Кнопка **рядом** с полем, не внизу страницы.
-- Пока не нажал **Check** — не подсвечивать и не показывать ответ.
-- После проверки: побуквенная лента + одна строка «почему», если ошибка. Эталон целиком не спойлерить до второй неудачной попытки.
-- Enter в поле = **Check**.
-- Счётчик: сколько заданий с полным совпадением (каждый символ зелёный).
+- Gold standard is a canonical English string (`expected`). Array `expected[]` is allowed; any variant counts.
+- Compare **character by character** after `trim()`. Case **matters** (English). Collapse repeated spaces to one.
+- Button **next to** the field, not at the bottom of the page.
+- Until **Check** — no highlight, no answer.
+- After check: letter ribbon + one “why” line on error. Do not spoil the full gold string until the second failed attempt.
+- Enter in the field = **Check**.
+- Counter: how many items match every character (all green).
 
-Минимальный JS (копировать в урок):
+Minimal JS (copy into the lesson):
 
 ```javascript
 function normalize(s) {
@@ -148,7 +148,7 @@ function renderDiff(el, parts) {
 }
 ```
 
-CSS ленты:
+Ribbon CSS:
 
 ```css
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -167,14 +167,14 @@ CSS ленты:
 .ch.miss { color: #64748b; border-bottom: 1px dashed #64748b; }
 ```
 
-Типы письменных заданий (можно мешать в одном уроке):
+Written drill types (mixable in one lesson):
 
-- **Диктант смысла:** RU → напиши EN.
-- **Gap:** предложение с пропуском, вписать форму (`have had`, `has gone`).
-- **Трансформация:** утверждение → вопрос / отрицание, ученик пишет целиком.
-- **Слова:** RU или дефиниция EN → напиши слово/коллокацию.
+- **Sense dictation:** RU → write EN.
+- **Gap:** sentence with a blank, type the form (`have had`, `has gone`).
+- **Transform:** statement → question / negative; student writes the whole line.
+- **Words:** RU or EN definition → write the word/collocation.
 
-## Слова: всегда shuffle
+## Vocab: always shuffle
 
 ```javascript
 function shuffle(arr) {
@@ -187,10 +187,10 @@ function shuffle(arr) {
 }
 ```
 
-- Список карточек, очередь упражнений, примеры в практике — `shuffle` при `DOMContentLoaded` и при «Перемешать».
-- Не фиксировать «слово 1 всегда первое».
-- Для грамматики shuffle заданий тоже: иначе запоминается номер, не правило.
+- Card lists, drill queues, practice examples — `shuffle` on `DOMContentLoaded` and on Shuffle.
+- Do not freeze “word 1 is always first”.
+- For grammar, shuffle items too: otherwise the student memorizes the number, not the rule.
 
-## Тон
+## Tone
 
-Деловой, плотный, **развёрнутый**. Без «молодец, ты супер». Попался символ — покажи какой. Не размазывай урок на все времена «для полноты». Не сжимай главу до тезисов: лучше длинный связный текст про одну форму, чем коротко про три.
+Professional, dense, **expanded**. No “well done, you’re amazing”. Wrong character — show which one. Do not smear one lesson across all tenses “for completeness”. Do not crush a chapter into bullets: a long coherent text on one form beats a short tour of three.
